@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { CocktailsRoutingModule } from './cocktails-routing.module';
+import { CocktailsComponent } from './cocktails.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CocktailsComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    CocktailsRoutingModule
   ]
 })
 export class CocktailsModule { }
