@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ChosenIngredientsComponent } from './chosen-ingredients/chosen-ingredients.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RandomCocktailListComponent } from './random-cocktail-list/random-cocktail-list.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     SidebarComponent,
     ChosenIngredientsComponent,
     PageNotFoundComponent,
+    RandomCocktailListComponent,
   ],
   imports: [
     BrowserModule,
