@@ -1,0 +1,55 @@
+header {
+    background-color: #32523c;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    height: 40px;
+    margin-right: 20px;
+}
+
+span {
+    color: #dfbd69;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:last-of-type {
+    margin-right: auto;
+}
+
+.header-button {
+    padding: 0.75em 2em;
+    border: 2px solid #32523c;
+    border-radius: 30px;
+    margin-left: 10px;
+    color: #32523c;
+}
+
+.header-button:hover {
+    cursor: pointer;
+}
+
+.header-button.log-in {
+    background-color: #32523c;
+    color: #ececec;
+    border-radius: 0;
+}
+
+.header-button.log-in:hover {
+    border-bottom-color: #ececec;
+    transition: 0.5s;
+}
+
+.header-button.sign-up:hover {
+    background-color: #32523c;
+    border-color: #ececec;
+    color: #ececec;
+    transition: 0.5s;
+}
