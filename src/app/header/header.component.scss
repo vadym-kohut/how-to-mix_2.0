@@ -1,5 +1,10 @@
 header {
-    background-color: #32523c;
+    background: rgb(60, 22, 66);
+    background: linear-gradient(
+        90deg,
+        rgba(60, 22, 66, 1) 0%,
+        rgba(50, 82, 60, 1) 40%
+    );
     padding: 15px;
     display: flex;
     align-items: center;
@@ -14,20 +19,20 @@ span {
     color: #dfbd69;
     font-weight: bold;
     font-size: 2rem;
+    font-family: "Zen Dots", cursive;
 }
 
 a {
     text-decoration: none;
+    display: block;
 }
 
-a:last-of-type {
+a:nth-child(2) {
     margin-right: auto;
 }
 
 .header-button {
     padding: 0.75em 2em;
-    border: 2px solid #32523c;
-    border-radius: 30px;
     margin-left: 10px;
     color: #32523c;
 }
@@ -37,18 +42,39 @@ a:last-of-type {
 }
 
 .header-button.log-in {
-    background-color: #32523c;
+    background: transparent;
     color: #ececec;
-    border-radius: 0;
+    border: none;
+    position: relative;
 }
 
-.header-button.log-in:hover {
-    border-bottom-color: #ececec;
-    transition: 0.5s;
+.header-button.log-in:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background: #ececec;
+    visibility: hidden;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: 0.25s linear;
+}
+
+.header-button.log-in:hover:before,
+.header-button.log-in:focus:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.header-button.sign-up {
+    background-color: #ececec;
+    border-radius: 30px;
 }
 
 .header-button.sign-up:hover {
-    background-color: #32523c;
+    background-color: #3c1642;
     border-color: #ececec;
     color: #ececec;
     transition: 0.5s;
