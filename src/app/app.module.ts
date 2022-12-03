@@ -10,6 +10,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RandomCocktailListComponent } from './random-cocktail-list/random-cocktail-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
     declarations: [
@@ -20,7 +22,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         PageNotFoundComponent,
         RandomCocktailListComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, MatGridListModule, BrowserAnimationsModule],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MatGridListModule,
+        BrowserAnimationsModule,
+        MatListModule,
+        MatIconModule,
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })

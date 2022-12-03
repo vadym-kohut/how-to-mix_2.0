@@ -1,9 +1,10 @@
 header {
     background: rgb(60, 22, 66);
     background: linear-gradient(90deg, #3c1642 0%, #32523c 40%);
-    padding: 15px;
+    padding: 10px;
     display: flex;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
 .header-logo {
@@ -28,7 +29,7 @@ a:nth-child(2) {
 }
 
 .header-button {
-    padding: 0.75em 2em;
+    padding: 0.5em 2em;
     margin-left: 10px;
     color: #32523c;
 }

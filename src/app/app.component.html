@@ -1,14 +1,8 @@
-<app-header></app-header>
-<mat-grid-list cols="6">
-    <mat-grid-tile colspan="1">
-        <app-sidebar></app-sidebar>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="4">
-        <router-outlet></router-outlet>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="1">
-        <app-chosen-ingredients></app-chosen-ingredients>
-    </mat-grid-tile>
-</mat-grid-list>
+<div class="container">
+    <app-header></app-header>
+    <div class="row">
+        <div class="col"><app-sidebar></app-sidebar></div>
+        <div class="col-8"><router-outlet></router-outlet></div>
+        <div class="col"><app-chosen-ingredients></app-chosen-ingredients></div>
+    </div>
+</div>
