@@ -1,5 +1,10 @@
 <div class="row">
-    <div class="col-3">
-        <app-ingredient-card></app-ingredient-card>
+    <div
+        class="col-3 mb-2"
+        *ngFor="let ingredient of allIngredientsList$ | async"
+    >
+        <app-ingredient-card
+            [ingredientName]="ingredient.strIngredient1"
+        ></app-ingredient-card>
     </div>
 </div>

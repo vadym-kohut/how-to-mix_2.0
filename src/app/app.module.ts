@@ -12,6 +12,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { MatIconModule } from '@angular/material/icon';
         BrowserAnimationsModule,
         MatListModule,
         MatIconModule,
+        HttpClientModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

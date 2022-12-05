@@ -7,17 +7,13 @@ import { IngredientListComponent } from './ingredient-list/ingredient-list.compo
 import { IngredientDetailsComponent } from './ingredient-details/ingredient-details.component';
 import { IngredientCardComponent } from './ingredient-list/ingredient-card/ingredient-card.component';
 
-
 @NgModule({
-  declarations: [
-    IngredientsComponent,
-    IngredientListComponent,
-    IngredientDetailsComponent,
-    IngredientCardComponent
-  ],
-  imports: [
-    CommonModule,
-    IngredientsRoutingModule
-  ]
+    declarations: [
+        IngredientsComponent,
+        IngredientListComponent,
+        IngredientDetailsComponent,
+        IngredientCardComponent,
+    ],
+    imports: [CommonModule, IngredientsRoutingModule],
 })
-export class IngredientsModule { }
+export class IngredientsModule {}

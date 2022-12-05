@@ -1,40 +1,32 @@
 .card-container {
-    background-image: url(../../../../assets/img/mock-whisky.jfif);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    aspect-ratio: 9/12;
-    border-radius: 25px;
+    border-radius: 0.375rem;
     position: relative;
-    overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    cursor: pointer;
+    background-color: #ececec;
+    transition: 0.5s;
 }
 
 .info {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 15px 20px 20px 20px;
-    color: #fff;
-    backdrop-filter: blur(10px);
-    background-color: #4848481a;
-}
-.name {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 5px;
+    padding: 10px;
+    color: #ececec;
+    background-color: #32523c;
+    opacity: 0.7;
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+    transition: 0.5s;
 }
 
-.buttons {
-    opacity: 0;
+.card-container:hover {
+    border: 1px solid #32523c;
+    transform: scale(1.05);
+    transition: 0.5s;
 }
 
-.card-container:hover > .buttons {
+.card-container:hover > .info {
     opacity: 1;
-    display: flex;
-    justify-content: space-around;
-    padding: 15px 20px 20px 20px;
-    backdrop-filter: blur(10px);
-    background-color: #4848481a;
-    transition: all 0.5s;
+    transition: 0.5s;
 }
