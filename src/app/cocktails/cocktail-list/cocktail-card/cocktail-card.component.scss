@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: #fff;
+}
+
+.containerr {
+    background-image: url(../../../../assets/img/mock-cocktail.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    // width: 300px;
+    aspect-ratio: 9/16;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 20px 20px 20px;
+    color: #fff;
+    backdrop-filter: blur(10px);
+    background-color: #4848481a;
+}
+.name {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.profession {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.buttons {
+    opacity: 0;
+}
+
+.containerr:hover > .buttons {
+    opacity: 1;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 20px 20px 20px;
+    backdrop-filter: blur(10px);
+    background-color: #4848481a;
+    transition: all 0.5s;
+}
