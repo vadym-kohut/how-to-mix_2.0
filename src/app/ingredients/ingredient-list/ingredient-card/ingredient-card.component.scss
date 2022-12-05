@@ -4,7 +4,7 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     cursor: pointer;
     background-color: #ececec;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .info {
@@ -17,16 +17,16 @@
     opacity: 0.7;
     border-bottom-left-radius: 0.375rem;
     border-bottom-right-radius: 0.375rem;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .card-container:hover {
     border: 1px solid #32523c;
     transform: scale(1.05);
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .card-container:hover > .info {
     opacity: 1;
-    transition: 0.5s;
+    transition: 0.3s;
 }
