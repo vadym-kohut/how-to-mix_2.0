@@ -1,18 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, pluck } from 'rxjs';
+import { map, Observable } from 'rxjs';
+
+export type Ingredient = {
+    strIngredient1: string
+}
+
+type IngredientListResponse = {
+    drinks: Ingredient[]
+}
 
 @Injectable({
     providedIn: 'root',
 })
 export class IngredientDBService {
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
-    getIngredientList$(): Observable<any> {
+    getIngredientList$(): Observable<Ingredient[]> {
         return this.http
-            .get('/api/json/v1/1/list.php', {
+            .get<IngredientListResponse>('/api/json/v1/1/list.php', {
                 params: { i: 'list' },
             })
-            .pipe(pluck('drinks'));
+            .pipe(
+                map(res => res.drinks)
+            );
     }
 }

@@ -10,10 +10,9 @@ import { IngredientDBService } from 'src/app/services/ingredient-db.service';
 export class IngredientListComponent implements OnInit {
     allIngredientsList$ = new Observable<any>();
 
-    constructor(private ingredientDB: IngredientDBService) {}
+    constructor(private ingredientDB: IngredientDBService) { }
 
     ngOnInit(): void {
         this.allIngredientsList$ = this.ingredientDB.getIngredientList$();
-        this.allIngredientsList$.subscribe((x) => console.log(x));
     }
 }
