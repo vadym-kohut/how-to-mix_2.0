@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { IngredientDBService } from 'src/app/services/ingredient-db.service';
+import { getIngredients, State } from '../state/ingredients.reducer';
+import * as IngredientActions from '../state/ingredients.actions';
+import { Ingredient } from 'src/app/services/ingredient-db.service';
 
 @Component({
     selector: 'app-ingredient-list',
@@ -8,11 +11,12 @@ import { IngredientDBService } from 'src/app/services/ingredient-db.service';
     styleUrls: ['./ingredient-list.component.scss'],
 })
 export class IngredientListComponent implements OnInit {
-    allIngredientsList$ = new Observable<any>();
+    allIngredientsList$ = new Observable<Ingredient[]>();
 
-    constructor(private ingredientDB: IngredientDBService) { }
+    constructor(private store: Store<State>) { }
 
     ngOnInit(): void {
-        this.allIngredientsList$ = this.ingredientDB.getIngredientList$();
+        this.allIngredientsList$ = this.store.select(getIngredients);
+        this.store.dispatch(IngredientActions.loadIngredients())
     }
 }
