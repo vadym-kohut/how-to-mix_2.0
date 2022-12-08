@@ -6,7 +6,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RandomCocktailListComponent } from './random-cocktail-list/random-cocktail-list.component';
 
 const routes: Routes = [
-    { path: '', component: IngredientListComponent },
     {
         path: 'cart',
         loadChildren: () =>
@@ -53,6 +52,7 @@ const routes: Routes = [
             ),
     },
     { path: 'random-cocktail-list', component: RandomCocktailListComponent },
+    { path: '', redirectTo: 'ingredients', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent },
 ];
 
@@ -60,4 +60,4 @@ const routes: Routes = [
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
