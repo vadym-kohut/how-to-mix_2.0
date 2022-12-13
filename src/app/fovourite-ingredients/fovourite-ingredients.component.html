@@ -1,0 +1,19 @@
+<img class="fav-ing_logo" src="../../assets/img/like.png">
+<span>Favourite Ingredients</span>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="card col-4 p-0" *ngFor="let ingredient of favouriteIngredients$ | async">
+      <img src="https://www.thecocktaildb.com/images/ingredients/{{ingredient.strIngredient}}-Medium.png"
+        class="card-img-top" alt="...">
+      <div class="card-body p-1">
+        <h5 class="card-title">{{ingredient.strIngredient}}</h5>
+        <h6>{{ingredient.strType}}</h6>
+      </div>
+      <button class="btn btn-sm btn-light plus_button" (click)="addChosenIng(ingredient)"><img class="card_icon plus"
+          src="../../assets/img/plus-sign.png"></button>
+      <button class="btn btn-sm btn-light" (click)="dislike(ingredient)"><img class="dislike"
+          src="../../assets/img/dislike.png"></button>
+    </div>
+  </div>
+</div>

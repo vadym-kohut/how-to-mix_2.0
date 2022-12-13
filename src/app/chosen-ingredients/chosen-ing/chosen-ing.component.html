@@ -1,0 +1,2 @@
+<li class="list-group-item" *ngFor="let ing of ings$ | async">{{ing.strIngredient1}}{{ing.strIngredient}}<img
+    (click)="removeChosen(ing)" class="chosen_ing-remove" src="../../../assets/img/delete.png"></li>
