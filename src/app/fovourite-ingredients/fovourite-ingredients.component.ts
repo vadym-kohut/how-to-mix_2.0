@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChosenIngService } from '../services/chosen-ing.service';
 import { FavouriteIngredientsService } from '../services/favourite-ingredients.service';
-import { Ingredient } from '../ingredient';
+import { Ingredient } from '../shared/interfaces/ingredient';
 import { IngredientDBService } from '../services/ingredient-db.service';
 
 @Component({
