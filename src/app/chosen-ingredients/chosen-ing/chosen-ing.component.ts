@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ChosenIngService } from 'src/app/services/chosen-ing.service';
+import { ChosenIngService } from 'src/app/shared/services/chosen-ing.service';
 import { Ingredient } from 'src/app/shared/interfaces/ingredient';
 
 @Component({

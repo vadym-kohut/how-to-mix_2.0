@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { CocktailDBService } from 'src/app/services/cocktail-db.service';
+import { CocktailDBService } from 'src/app/shared/services/cocktail-db.service';
 
 @Component({
   selector: 'app-cocktails-by-ingredient',

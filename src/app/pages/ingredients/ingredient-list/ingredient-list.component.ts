@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { getIngredients, State } from '../state/ingredients.reducer';
 import * as IngredientActions from '../state/ingredients.actions';
-import { Ingredient } from 'src/app/services/ingredient-db.service';
+import { Ingredient } from 'src/app/shared/services/ingredient-db.service';
 
 @Component({
     selector: 'app-ingredient-list',

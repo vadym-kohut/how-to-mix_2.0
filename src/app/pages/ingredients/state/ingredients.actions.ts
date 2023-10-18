@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { Ingredient } from "src/app/services/ingredient-db.service";
+import { Ingredient } from "src/app/shared/services/ingredient-db.service";
 
 export const loadIngredients = createAction(
     '[Ingredients] Load'

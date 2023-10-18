@@ -1,4 +1,4 @@
-import { ingredientsReducer, IngredientsState } from "../ingredients/state/ingredients.reducer";
+import { ingredientsReducer, IngredientsState } from "../pages/ingredients/state/ingredients.reducer";
 
 export interface State {
     ingredients: IngredientsState

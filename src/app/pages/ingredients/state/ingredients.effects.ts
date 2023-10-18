@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { map, mergeMap } from "rxjs";
-import { IngredientDBService } from "src/app/services/ingredient-db.service";
+import { IngredientDBService } from "src/app/shared/services/ingredient-db.service";
 import * as IngredientsActions from './ingredients.actions';
 
 @Injectable()
