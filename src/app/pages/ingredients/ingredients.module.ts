@@ -8,8 +8,6 @@ import { IngredientDetailsComponent } from './ingredient-details/ingredient-deta
 import { IngredientCardComponent } from './ingredient-list/ingredient-card/ingredient-card.component';
 import { StoreModule } from '@ngrx/store';
 import { ingredientsReducer } from './state/ingredients.reducer';
-import { EffectsModule } from '@ngrx/effects';
-import { IngredientsEffects } from './state/ingredients.effects';
 
 @NgModule({
     declarations: [
@@ -21,8 +19,7 @@ import { IngredientsEffects } from './state/ingredients.effects';
     imports: [
         CommonModule,
         IngredientsRoutingModule,
-        StoreModule.forFeature('ingredients', ingredientsReducer),
-        EffectsModule.forFeature([IngredientsEffects])
+        StoreModule.forFeature('ingredients', ingredientsReducer)
     ],
 })
 export class IngredientsModule { }

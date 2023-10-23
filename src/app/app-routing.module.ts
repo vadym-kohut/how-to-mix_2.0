@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CocktailListComponent } from './pages/cocktails/cocktail-list/cocktail-list.component';
-import { IngredientListComponent } from './pages/ingredients/ingredient-list/ingredient-list.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { RandomCocktailListComponent } from './random-cocktail-list/random-cocktail-list.component';
 
 const routes: Routes = [
     {
@@ -51,7 +48,6 @@ const routes: Routes = [
                 (m) => m.StopListModule
             ),
     },
-    { path: 'random-cocktail-list', component: RandomCocktailListComponent },
     { path: '', redirectTo: 'ingredients', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent },
 ];
