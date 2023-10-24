@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { getIngredients, State } from '../state/ingredients.reducer';
 import * as IngredientActions from '../state/ingredients.actions';
-import { Ingredient } from "../../../shared/services/ingredient-db.service";
+import { IngredientListItem } from "../../../shared/interfaces/ingredientDetails";
 
 @Component({
     selector: 'app-ingredient-list',
@@ -11,7 +11,7 @@ import { Ingredient } from "../../../shared/services/ingredient-db.service";
     styleUrls: ['./ingredient-list.component.scss'],
 })
 export class IngredientListComponent implements OnInit {
-    allIngredientsList$ = new Observable<Ingredient[]>();
+    allIngredientsList$ = new Observable<IngredientListItem[]>();
 
     constructor(private store: Store<State>) { }
 

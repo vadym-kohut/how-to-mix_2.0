@@ -1,14 +1,14 @@
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
 import * as AppState from "../../../state/app.state"
 import * as IngredientsActions from './ingredients.actions';
-import { Ingredient } from "../../../shared/services/ingredient-db.service";
+import { IngredientListItem } from "../../../shared/interfaces/ingredientDetails";
 
 export interface State extends AppState.State {
   ingredients: IngredientsState;
 }
 
 export interface IngredientsState {
-  ingredientList: Ingredient[];
+  ingredientList: IngredientListItem[];
 }
 
 const initialState: IngredientsState = {

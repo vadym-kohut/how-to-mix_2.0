@@ -16,6 +16,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { appReducer } from "./state/app.state";
 import { CommonModule } from "@angular/common";
+import { ChosenIngComponent } from "./chosen-ingredients/chosen-ing/chosen-ing.component";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CommonModule } from "@angular/common";
     HeaderComponent,
     SidebarComponent,
     ChosenIngredientsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ChosenIngComponent
   ],
   imports: [
     CommonModule,

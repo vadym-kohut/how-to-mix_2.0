@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ChosenIngService } from 'src/app/shared/services/chosen-ing.service';
-import { Ingredient } from 'src/app/shared/interfaces/ingredient';
+import { IngredientDetails } from 'src/app/shared/interfaces/ingredientDetails';
 
 @Component({
   selector: 'app-chosen-ing',
@@ -12,11 +11,9 @@ export class ChosenIngComponent implements OnInit {
   @Output()
   removeChosenEvent = new EventEmitter<any>();
 
-  ings$ = this.ChosenIngService.getChosenIng$();
+  constructor() { }
 
-  constructor(private ChosenIngService: ChosenIngService) { }
-
-  removeChosen(ing: Ingredient) {
+  removeChosen(ing: IngredientDetails) {
     this.removeChosenEvent.emit(ing);
   }
 
