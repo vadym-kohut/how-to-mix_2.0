@@ -1,4 +1,4 @@
-import { NgModule, isDevMode } from "@angular/core";
+import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -17,31 +17,36 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { appReducer } from "./state/app.state";
 import { CommonModule } from "@angular/common";
 import { ChosenIngComponent } from "./chosen-ingredients/chosen-ing/chosen-ing.component";
+import { environment } from "../environments/environment";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    SidebarComponent,
-    ChosenIngredientsComponent,
-    PageNotFoundComponent,
-    ChosenIngComponent
-  ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    MatGridListModule,
-    BrowserAnimationsModule,
-    MatListModule,
-    MatIconModule,
-    HttpClientModule,
-    StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({ name: "HowToMix App Devtools", maxAge: 25, logOnly: !isDevMode() })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        SidebarComponent,
+        ChosenIngredientsComponent,
+        PageNotFoundComponent,
+        ChosenIngComponent
+    ],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        AppRoutingModule,
+        MatGridListModule,
+        BrowserAnimationsModule,
+        MatListModule,
+        MatIconModule,
+        HttpClientModule,
+        StoreModule.forRoot(appReducer),
+        EffectsModule.forRoot([]),
+        StoreDevtoolsModule.instrument({
+            name: "HowToMix App Devtools",
+            maxAge: 25,
+            logOnly: environment.production
+        })
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

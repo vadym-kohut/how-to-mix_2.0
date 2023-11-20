@@ -8,5 +8,9 @@ export interface IngredientDetails {
 }
 
 export interface IngredientListItem {
-  strIngredient1: string
+    strIngredient1: string
+}
+
+export interface IngredientListResponse {
+    drinks: IngredientListItem[]
 }

@@ -1,7 +1,7 @@
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
 import * as AppState from "../../../state/app.state"
 import * as IngredientsActions from './ingredients.actions';
-import { IngredientListItem } from "../../../shared/interfaces/ingredientDetails";
+import { IngredientListItem } from "../../../shared/models/ingredient.model";
 
 export interface State extends AppState.State {
   ingredients: IngredientsState;
@@ -25,7 +25,7 @@ export const getIngredients = createSelector(
 
 export const ingredientsReducer = createReducer(
   initialState,
-  on(IngredientsActions.loadIngredientsSuccess, (state, action): IngredientsState => {
+  on(IngredientsActions.loadIngredientListSuccess, (state, action): IngredientsState => {
     return {
       ...state,
       ingredientList: action.ingredients

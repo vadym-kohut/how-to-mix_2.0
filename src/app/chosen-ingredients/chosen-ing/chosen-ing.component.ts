@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { IngredientDetails } from 'src/app/shared/interfaces/ingredientDetails';
+import { IngredientDetails } from "../../shared/models/ingredient.model";
 
 @Component({
   selector: 'app-chosen-ing',

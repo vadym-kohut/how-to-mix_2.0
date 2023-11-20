@@ -1,11 +1,20 @@
 import { createAction, props } from "@ngrx/store";
-import { IngredientListItem } from "../../../shared/interfaces/ingredientDetails";
+import { IngredientDetails, IngredientListItem } from "../../../shared/models/ingredient.model";
 
-export const loadIngredients = createAction(
-    '[Ingredients] Load'
+export const loadIngredientList = createAction(
+    "[Ingredients] Load Ingredient List"
 );
 
-export const loadIngredientsSuccess = createAction(
-    '[Ingredients] Load Success',
+export const loadIngredientListSuccess = createAction(
+    "[Ingredients] Load Ingredient List Success",
     props<{ ingredients: IngredientListItem[] }>()
+);
+
+export const loadIngredientDetails = createAction(
+    "[Ingredients] Load Ingredient Details"
+);
+
+export const loadIngredientDetailsSuccess = createAction(
+    "[Ingredients] Load Ingredient Details Success",
+    props<{ ingredientDetails: IngredientDetails[] }>()
 );
