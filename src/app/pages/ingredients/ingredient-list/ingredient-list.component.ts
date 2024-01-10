@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
+import { IngredientListItem } from "../../../shared/models/ingredient.model";
 import { getIngredients, State } from "../state/ingredients.reducer";
 import * as IngredientActions from "../state/ingredients.actions";
-import { IngredientListItem } from "../../../shared/models/ingredient.model";
 
 @Component({
     selector: "app-ingredient-list",

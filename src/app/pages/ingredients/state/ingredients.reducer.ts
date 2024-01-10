@@ -1,34 +1,46 @@
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
-import * as AppState from "../../../state/app.state"
-import * as IngredientsActions from './ingredients.actions';
-import { IngredientListItem } from "../../../shared/models/ingredient.model";
+import * as AppState from "../../../state/app.state";
+import * as IngredientsActions from "./ingredients.actions";
+import { IngredientDetails, IngredientListItem } from "../../../shared/models/ingredient.model";
 
 export interface State extends AppState.State {
-  ingredientList: IngredientsState;
+    ingredientState: IngredientsState;
 }
 
 export interface IngredientsState {
-  ingredientList: IngredientListItem[];
+    ingredientList: IngredientListItem[];
+    ingredientDetails: IngredientDetails | null;
 }
 
 const initialState: IngredientsState = {
-  ingredientList: []
-}
+    ingredientList: [],
+    ingredientDetails: null
+};
 
 // Selectors
-const getProductFeatureState = createFeatureSelector<IngredientsState>('ingredients');
+const getProductFeatureState = createFeatureSelector<IngredientsState>("ingredients");
 
 export const getIngredients = createSelector(
-  getProductFeatureState,
-  state => state.ingredientList
+    getProductFeatureState,
+    state => state.ingredientList
 );
+export const getIngredientDetails = createSelector(
+    getProductFeatureState,
+    state => state.ingredientDetails
+)
 
 export const ingredientsReducer = createReducer(
-  initialState,
-  on(IngredientsActions.loadIngredientListSuccess, (state, action): IngredientsState => {
-    return {
-      ...state,
-      ingredientList: action.ingredientList
-    }
-  })
+    initialState,
+    on(IngredientsActions.loadIngredientListSuccess, (state, action): IngredientsState => {
+        return {
+            ...state,
+            ingredientList: action.ingredientList
+        };
+    }),
+    on(IngredientsActions.loadIngredientDetailsSuccess, (state, action): IngredientsState => {
+        return {
+            ...state,
+            ingredientDetails: action.ingredientDetails
+        }
+    })
 );

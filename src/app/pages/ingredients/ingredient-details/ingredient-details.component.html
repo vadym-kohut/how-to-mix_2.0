@@ -1,1 +1,12 @@
-<p>ingredient-details works!</p>
+<div *ngIf="ingredientDetails$ | async as ingredient">
+    <h2 class="mb-4">{{ingredient.strIngredient}}</h2>
+    <div class="row">
+        <div class="col-5">
+            <img alt="Ingredient image" class="ing_img"
+                 src="https://www.thecocktaildb.com/images/ingredients/{{ingredient.strIngredient}}-Medium.png">
+        </div>
+        <div class="col-7">
+            <p class="card-text">{{ingredient.strDescription}}</p>
+        </div>
+    </div>
+</div>
