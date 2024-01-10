@@ -18,14 +18,14 @@ const initialState: IngredientsState = {
 };
 
 // Selectors
-const getProductFeatureState = createFeatureSelector<IngredientsState>("ingredients");
+const getIngredientFeatureState = createFeatureSelector<IngredientsState>("ingredients");
 
 export const getIngredients = createSelector(
-    getProductFeatureState,
+    getIngredientFeatureState,
     state => state.ingredientList
 );
 export const getIngredientDetails = createSelector(
-    getProductFeatureState,
+    getIngredientFeatureState,
     state => state.ingredientDetails
 )
 

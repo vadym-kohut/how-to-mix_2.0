@@ -4,7 +4,7 @@
         *ngFor="let ingredient of allIngredientsList$ | async"
     >
         <app-ingredient-card
-            routerLink="/ingredients/ingredient-details/{{ingredient.strIngredient1}}"
+            routerLink="/ingredients/details/{{ingredient.strIngredient1}}"
             [ingredientName]="ingredient.strIngredient1"
         ></app-ingredient-card>
     </div>

@@ -4,9 +4,9 @@ import { IngredientDetailsComponent } from './ingredient-details/ingredient-deta
 import { IngredientListComponent } from './ingredient-list/ingredient-list.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'ingredient-list' },
-  { path: 'ingredient-list', component: IngredientListComponent },
-  { path: 'ingredient-details/:name', component: IngredientDetailsComponent }
+  { path: '', pathMatch: 'full', redirectTo: 'all' },
+  { path: 'all', component: IngredientListComponent },
+  { path: 'details/:name', component: IngredientDetailsComponent }
 ];
 
 @NgModule({
