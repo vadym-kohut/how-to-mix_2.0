@@ -6,10 +6,13 @@ import * as IngredientsActions from "./ingredients.actions";
 
 @Injectable()
 export class IngredientsEffects {
-    constructor(private actions$: Actions, private ingredientDB: IngredientDBService) {
+    constructor(
+        private actions$: Actions,
+        private ingredientDB: IngredientDBService
+    ) {
     }
 
-    LoadIngredients$ = createEffect(() => {
+    LoadIngredientList$ = createEffect(() => {
         return this.actions$
             .pipe(
                 ofType(IngredientsActions.loadIngredientList),
@@ -25,7 +28,7 @@ export class IngredientsEffects {
         return this.actions$
             .pipe(
                 ofType(IngredientsActions.loadIngredientDetails),
-                mergeMap(action => this.ingredientDB.getIngredientByName$(action.ingredientName)
+                mergeMap(action => this.ingredientDB.getIngredientDetails$(action.ingredientName)
                     .pipe(
                         map(ingredientDetails => IngredientsActions.loadIngredientDetailsSuccess({ ingredientDetails: ingredientDetails }))
                     )
