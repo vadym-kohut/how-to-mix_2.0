@@ -4,7 +4,7 @@ import * as IngredientsActions from './ingredients.actions';
 import { IngredientListItem } from "../../../shared/models/ingredient.model";
 
 export interface State extends AppState.State {
-  ingredients: IngredientsState;
+  ingredientList: IngredientsState;
 }
 
 export interface IngredientsState {
@@ -28,7 +28,7 @@ export const ingredientsReducer = createReducer(
   on(IngredientsActions.loadIngredientListSuccess, (state, action): IngredientsState => {
     return {
       ...state,
-      ingredientList: action.ingredients
+      ingredientList: action.ingredientList
     }
   })
 );

@@ -6,6 +6,7 @@ import { CocktailsComponent } from './cocktails.component';
 import { CocktailListComponent } from './cocktail-list/cocktail-list.component';
 import { CocktailDetailsComponent } from './cocktail-details/cocktail-details.component';
 import { CocktailCardComponent } from './cocktail-list/cocktail-card/cocktail-card.component';
+import { CocktailsByIngredientComponent } from "./cocktails-by-ingredient/cocktails-by-ingredient.component";
 
 @NgModule({
     declarations: [
@@ -13,6 +14,7 @@ import { CocktailCardComponent } from './cocktail-list/cocktail-card/cocktail-ca
         CocktailListComponent,
         CocktailDetailsComponent,
         CocktailCardComponent,
+        CocktailsByIngredientComponent
     ],
     imports: [CommonModule, CocktailsRoutingModule],
 })

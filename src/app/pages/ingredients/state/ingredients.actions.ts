@@ -7,14 +7,15 @@ export const loadIngredientList = createAction(
 
 export const loadIngredientListSuccess = createAction(
     "[Ingredients] Load Ingredient List Success",
-    props<{ ingredients: IngredientListItem[] }>()
+    props<{ ingredientList: IngredientListItem[] }>()
 );
 
 export const loadIngredientDetails = createAction(
-    "[Ingredients] Load Ingredient Details"
+    "[Ingredients] Load Ingredient Details",
+    props<{ ingredientName: string }>()
 );
 
 export const loadIngredientDetailsSuccess = createAction(
     "[Ingredients] Load Ingredient Details Success",
-    props<{ ingredientDetails: IngredientDetails[] }>()
+    props<{ ingredientDetails: IngredientDetails }>()
 );

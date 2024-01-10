@@ -15,17 +15,21 @@ export class IngredientsEffects {
                 ofType(IngredientsActions.loadIngredientList),
                 mergeMap(() => this.ingredientDB.getIngredientList$()
                     .pipe(
-                        map(ingredients => IngredientsActions.loadIngredientListSuccess({ ingredients }))
+                        map(ingredientList => IngredientsActions.loadIngredientListSuccess({ ingredientList: ingredientList }))
                     )
                 )
             );
     });
 
-    // LoadIngredientDetails$ = createEffect(() => {
-    //     return this.actions$
-    //         .pipe(
-    //             ofType(IngredientsActions.loadIngredientDetails),
-    //             mergeMap(() => )
-    //         )
-    // });
+    LoadIngredientDetails$ = createEffect(() => {
+        return this.actions$
+            .pipe(
+                ofType(IngredientsActions.loadIngredientDetails),
+                mergeMap(action => this.ingredientDB.getIngredientByName$(action.ingredientName)
+                    .pipe(
+                        map(ingredientDetails => IngredientsActions.loadIngredientDetailsSuccess({ ingredientDetails: ingredientDetails }))
+                    )
+                )
+            );
+    });
 }
