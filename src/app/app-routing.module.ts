@@ -48,7 +48,7 @@ const routes: Routes = [
                 (m) => m.StopListModule
             ),
     },
-    { path: '', redirectTo: 'ingredients', pathMatch: 'full' },
+    { path: '', redirectTo: 'cocktails', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent },
 ];
 

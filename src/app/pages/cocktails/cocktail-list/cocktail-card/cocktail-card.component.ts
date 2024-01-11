@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from "@angular/core";
+import { CocktailDetails } from "../../../../shared/models/cocktail.model";
 
 @Component({
     selector: 'app-cocktail-card',
@@ -6,6 +7,5 @@ import { Component } from '@angular/core';
     styleUrls: ['./cocktail-card.component.scss'],
 })
 export class CocktailCardComponent {
-    cocktailName = 'Margarita';
-    cocktailCategory = 'Ordinary Drink';
+    @Input() cocktailDetails!: CocktailDetails;
 }
