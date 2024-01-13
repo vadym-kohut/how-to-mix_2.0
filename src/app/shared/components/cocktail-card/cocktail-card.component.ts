@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { CocktailDetails } from "../../models/cocktail.model";
+import { CocktailDetails, CocktailListItem } from "../../models/cocktail.model";
 
 @Component({
     selector: "htm-cocktail-card",
@@ -8,5 +8,5 @@ import { CocktailDetails } from "../../models/cocktail.model";
     standalone: true
 })
 export class CocktailCardComponent {
-    @Input() cocktailDetails!: CocktailDetails;
+    @Input() cocktailDetails!: CocktailDetails | CocktailListItem;
 }

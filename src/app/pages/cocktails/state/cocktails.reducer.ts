@@ -44,5 +44,11 @@ export const cocktailsReducer = createReducer(
             ...state,
             cocktailListByFirstLetter: action.cocktailList
         };
+    }),
+    on(CocktailActions.loadCocktailListByIngredientSuccess, (state, action): CocktailState => {
+        return {
+            ...state,
+            cocktailListByIngredient: action.cocktailList
+        }
     })
 );
