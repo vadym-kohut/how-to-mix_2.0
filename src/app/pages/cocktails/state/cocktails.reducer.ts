@@ -50,5 +50,11 @@ export const cocktailsReducer = createReducer(
             ...state,
             cocktailListByIngredient: action.cocktailList
         }
+    }),
+    on(CocktailActions.loadCocktailDetailsSuccess, (state, action): CocktailState => {
+        return {
+            ...state,
+            cocktailDetails: action.cocktailDetails
+        }
     })
 );

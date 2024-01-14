@@ -1,0 +1,14 @@
+.cocktail_image {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.ingredient__name:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.ingredient-table__header {
+    border-bottom: 2px solid black;
+    font-weight: 600;
+}

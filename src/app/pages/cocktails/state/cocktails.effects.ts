@@ -19,7 +19,8 @@ export class CocktailsEffects {
                 mergeMap(action => this.cocktailDB.getCocktailListByFirstLetter$(action.firstLetter)
                     .pipe(
                         map(cocktailList => CocktailsActions.loadCocktailListByFirstLetterSuccess({ cocktailList }))
-                    ))
+                    )
+                )
             );
     });
 
@@ -30,7 +31,20 @@ export class CocktailsEffects {
                 mergeMap(action => this.cocktailDB.getCocktailListByIngredient$(action.ingredientName)
                     .pipe(
                         map(cocktailList => CocktailsActions.loadCocktailListByIngredientSuccess({ cocktailList }))
-                    ))
+                    )
+                )
+            );
+    });
+
+    loadCocktailDetails$ = createEffect(() => {
+        return this.actions$
+            .pipe(
+                ofType(CocktailsActions.loadCocktailDetails),
+                mergeMap(action => this.cocktailDB.getCocktailDetails$(action.id)
+                    .pipe(
+                        map(cocktailDetails => CocktailsActions.loadCocktailDetailsSuccess({ cocktailDetails }))
+                    )
+                )
             );
     });
 

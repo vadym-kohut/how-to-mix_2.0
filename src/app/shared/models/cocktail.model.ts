@@ -4,7 +4,7 @@ export interface CocktailListItem {
     idDrink: string;
 }
 
-export interface CocktailDetails {
+export interface CocktailDetailsResponse {
     idDrink: string;
     strDrink: string;
     strDrinkAlternate: string | null;
@@ -52,6 +52,31 @@ export interface CocktailDetails {
     strMeasure13: string | null;
     strMeasure14: string | null;
     strMeasure15: string | null;
+    strImageSource: string | null;
+    strImageAttribution: string | null;
+    strCreativeCommonsConfirmed: string;
+    dateModified: string;
+}
+
+export interface CocktailDetails {
+    idDrink: string;
+    strDrink: string;
+    strDrinkAlternate: string | null;
+    strTags: string | null;
+    strVideo: string | null;
+    strCategory: string;
+    strIBA: string | null;
+    strAlcoholic: string;
+    strGlass: string;
+    strInstructions: string;
+    strInstructionsES: string | null;
+    strInstructionsDE: string | null;
+    strInstructionsFR: string | null;
+    strInstructionsIT: string | null;
+    strInstructionsZH_HANS: string | null;
+    strInstructionsZH_HANT: string | null;
+    strDrinkThumb: string | null;
+    ingredientList: {ingredientName: string, ingredientMeasure: string}[];
     strImageSource: string | null;
     strImageAttribution: string | null;
     strCreativeCommonsConfirmed: string;

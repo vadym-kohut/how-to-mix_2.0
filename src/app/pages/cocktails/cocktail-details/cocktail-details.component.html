@@ -1,1 +1,32 @@
-<p>cocktail-details works!</p>
+<ng-container *ngIf="cocktailDetails$ | async as cocktailDetails">
+    <h2>{{cocktailDetails.strDrink}}</h2>
+
+    <div class="row my-4">
+
+        <div class="col-5">
+            <img alt="Cocktail image" [src]="cocktailDetails.strDrinkThumb" class="cocktail_image">
+        </div>
+
+        <div class="col-7">
+            <table class="table">
+                <thead class="ingredient-table__header">
+                <tr>
+                    <th scope="col">Ingredient</th>
+                    <th scope="col">Measure</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let ingredient of cocktailDetails.ingredientList">
+                    <td class="ingredient__name"
+                        routerLink="/ingredients/details/{{ingredient.ingredientName}}">{{ingredient.ingredientName}}</td>
+                    <td>{{ingredient.ingredientMeasure}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <h3>Instructions</h3>
+    <p>{{cocktailDetails.strInstructions}}</p>
+</ng-container>
