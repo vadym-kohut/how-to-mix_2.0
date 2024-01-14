@@ -1,10 +1,10 @@
 <div *ngIf="ingredientDetails$ | async as ingredient">
-    <h2 class="mb-4">{{ingredient.strIngredient}}
+    <h2 class="mb-4 ingredient-header">{{ingredient.strIngredient}}
         <button class="btn btn-outline-dark" routerLink="/cocktails/by-ingredient/{{ingredient.strIngredient}}">Cocktails with {{ingredient.strIngredient}}</button>
     </h2>
     <div class="row">
         <div class="col-5">
-            <img alt="Ingredient image" class="ing_img"
+            <img alt="Ingredient image" class="ingredient-image"
                  src="https://www.thecocktaildb.com/images/ingredients/{{ingredient.strIngredient}}-Medium.png">
         </div>
         <div class="col-7">

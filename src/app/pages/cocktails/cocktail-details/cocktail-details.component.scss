@@ -1,6 +1,10 @@
-.cocktail_image {
+.cocktail-image {
     width: 100%;
     border-radius: 15px;
+}
+
+.cocktail-header {
+    font-weight: 500;
 }
 
 .ingredient__name:hover {
@@ -10,5 +14,5 @@
 
 .ingredient-table__header {
     border-bottom: 2px solid black;
-    font-weight: 600;
+    font-weight: 500;
 }

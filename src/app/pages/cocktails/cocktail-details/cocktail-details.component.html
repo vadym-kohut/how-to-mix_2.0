@@ -1,10 +1,10 @@
 <ng-container *ngIf="cocktailDetails$ | async as cocktailDetails">
-    <h2>{{cocktailDetails.strDrink}}</h2>
+    <h2 class="cocktail-header">{{cocktailDetails.strDrink}}</h2>
 
     <div class="row my-4">
 
         <div class="col-5">
-            <img alt="Cocktail image" [src]="cocktailDetails.strDrinkThumb" class="cocktail_image">
+            <img alt="Cocktail image" [src]="cocktailDetails.strDrinkThumb" class="cocktail-image">
         </div>
 
         <div class="col-7">
