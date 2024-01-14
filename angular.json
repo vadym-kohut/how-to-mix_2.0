@@ -64,10 +64,10 @@
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "How-To-Mix:build:production"
+                          "buildTarget": "How-To-Mix:build:production"
                         },
                         "development": {
-                            "browserTarget": "How-To-Mix:build:development"
+                          "buildTarget": "How-To-Mix:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "How-To-Mix:build"
+                      "buildTarget": "How-To-Mix:build"
                     }
                 },
                 "test": {

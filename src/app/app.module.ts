@@ -47,7 +47,7 @@ import { LoaderInterceptor } from "./shared/interceptors/loader.interceptor";
             name: "HowToMix App Devtools",
             maxAge: 25,
             logOnly: environment.production
-        }),
+        , connectInZone: true}),
         MatProgressSpinnerModule
     ],
     providers: [
