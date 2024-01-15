@@ -12,7 +12,7 @@ export class IngredientDBService {
 
     getIngredientList$(): Observable<IngredientListItem[]> {
         return this.http
-            .get<IngredientListResponse>('/api/json/v1/1/list.php', {
+            .get<IngredientListResponse>('http://www.thecocktaildb.com/api/json/v1/1/list.php', {
                 params: { i: 'list' }
             })
             .pipe(

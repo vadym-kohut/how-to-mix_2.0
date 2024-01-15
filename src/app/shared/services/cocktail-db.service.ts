@@ -13,7 +13,7 @@ export class CocktailDbService {
 
     getCocktailListByFirstLetter$(firstLetter: string): Observable<CocktailDetails[]> {
         return this.http.get<{ drinks: CocktailDetails[] }>(
-            "/api/json/v1/1/search.php",
+            "http://www.thecocktaildb.com/api/json/v1/1/search.php",
             { params: { f: firstLetter } }
         ).pipe(
             map(data => data.drinks)
