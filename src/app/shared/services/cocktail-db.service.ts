@@ -13,7 +13,7 @@ export class CocktailDbService {
 
     getCocktailListByFirstLetter$(firstLetter: string): Observable<CocktailDetails[]> {
         return this.http.get<{ drinks: CocktailDetails[] }>(
-            "http://www.thecocktaildb.com/api/json/v1/1/search.php",
+            "https://www.thecocktaildb.com/api/json/v1/1/search.php",
             { params: { f: firstLetter } }
         ).pipe(
             map(data => data.drinks)
@@ -22,7 +22,7 @@ export class CocktailDbService {
 
     getCocktailListByIngredient$(ingredientName: string): Observable<CocktailListItem[]> {
         return this.http.get<{ drinks: CocktailListItem[] }>(
-            "/api/json/v1/1/filter.php",
+            "https://www.thecocktaildb.com/api/json/v1/1/filter.php",
             { params: { i: ingredientName } }
         ).pipe(
             map(data => data.drinks)
@@ -31,7 +31,7 @@ export class CocktailDbService {
 
     getCocktailDetails$(id: string): Observable<CocktailDetails> {
         return this.http.get<{ drinks: CocktailDetailsResponse[] }>(
-            "/api/json/v1/1/lookup.php",
+            "https://www.thecocktaildb.com/api/json/v1/1/lookup.php",
             { params: { i: id } }
         ).pipe(
             map(data => data.drinks[0]),
