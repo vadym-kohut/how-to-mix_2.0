@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IngredientDetails } from "../../shared/models/ingredient.model";
 
 @Component({
-  selector: 'app-chosen-ing',
+  selector: 'htm-chosen-ing',
   templateUrl: './chosen-ing.component.html',
   styleUrls: ['./chosen-ing.component.scss']
 })

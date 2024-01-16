@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-ingredients',
+  selector: 'htm-ingredients',
   templateUrl: './ingredients.component.html',
   styleUrls: ['./ingredients.component.scss']
 })

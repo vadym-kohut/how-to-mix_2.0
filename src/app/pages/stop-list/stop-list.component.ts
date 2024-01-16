@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-stop-list',
+  selector: 'htm-stop-list',
   templateUrl: './stop-list.component.html',
   styleUrls: ['./stop-list.component.scss']
 })

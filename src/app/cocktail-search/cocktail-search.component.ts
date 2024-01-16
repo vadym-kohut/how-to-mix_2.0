@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-cocktail-search',
+  selector: 'htm-cocktail-search',
   templateUrl: './cocktail-search.component.html',
   styleUrls: ['./cocktail-search.component.scss']
 })

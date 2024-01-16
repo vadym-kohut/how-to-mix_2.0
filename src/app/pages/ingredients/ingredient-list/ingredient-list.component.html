@@ -1,11 +1,11 @@
 <div class="row">
     <div
-        class="col-2 gy-3 gx-3"
+        class="col-3 gy-3 gx-3"
         *ngFor="let ingredient of allIngredientsList$ | async"
     >
-        <app-ingredient-card
+        <htm-ingredient-card
             routerLink="/ingredients/details/{{ingredient.strIngredient1}}"
             [ingredientName]="ingredient.strIngredient1"
-        ></app-ingredient-card>
+        ></htm-ingredient-card>
     </div>
 </div>

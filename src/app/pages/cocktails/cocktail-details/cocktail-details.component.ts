@@ -7,7 +7,7 @@ import { ActivatedRoute } from "@angular/router";
 import * as CocktailActions from "../state/cocktails.actions";
 
 @Component({
-    selector: "app-cocktail-details",
+    selector: "htm-cocktail-details",
     templateUrl: "./cocktail-details.component.html",
     styleUrls: ["./cocktail-details.component.scss"]
 })

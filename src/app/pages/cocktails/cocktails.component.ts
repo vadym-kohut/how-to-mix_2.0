@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-cocktails',
+  selector: 'htm-cocktails',
   templateUrl: './cocktails.component.html',
   styleUrls: ['./cocktails.component.scss']
 })

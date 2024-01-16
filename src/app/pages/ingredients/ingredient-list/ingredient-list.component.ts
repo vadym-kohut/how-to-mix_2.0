@@ -6,7 +6,7 @@ import { getIngredients, State } from "../state/ingredients.reducer";
 import * as IngredientActions from "../state/ingredients.actions";
 
 @Component({
-    selector: "app-ingredient-list",
+    selector: "htm-ingredient-list",
     templateUrl: "./ingredient-list.component.html",
     styleUrls: ["./ingredient-list.component.scss"]
 })

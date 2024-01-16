@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-ingredient-search',
+  selector: 'htm-ingredient-search',
   templateUrl: './ingredient-search.component.html',
   styleUrls: ['./ingredient-search.component.scss']
 })

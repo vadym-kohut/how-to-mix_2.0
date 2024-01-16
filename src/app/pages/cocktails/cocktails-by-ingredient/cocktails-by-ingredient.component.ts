@@ -7,7 +7,7 @@ import { State, getCocktailListByIngredient } from "../state/cocktails.reducer";
 import * as CocktailActions from "../state/cocktails.actions";
 
 @Component({
-    selector: "app-cocktails-by-ingredient",
+    selector: "htm-cocktails-by-ingredient",
     templateUrl: "./cocktails-by-ingredient.component.html",
     styleUrls: ["./cocktails-by-ingredient.component.scss"]
 })

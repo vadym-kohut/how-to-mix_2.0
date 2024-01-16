@@ -7,7 +7,7 @@ import * as IngredientActions from "../state/ingredients.actions";
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
-    selector: "app-ingredient-details",
+    selector: "htm-ingredient-details",
     templateUrl: "./ingredient-details.component.html",
     styleUrls: ["./ingredient-details.component.scss"]
 })

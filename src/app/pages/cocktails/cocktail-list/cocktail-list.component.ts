@@ -6,7 +6,7 @@ import { getCocktailsByFirstLetter, State } from "../state/cocktails.reducer";
 import * as CocktailActions from '../state/cocktails.actions';
 
 @Component({
-  selector: 'app-cocktail-list',
+  selector: 'htm-cocktail-list',
   templateUrl: './cocktail-list.component.html',
   styleUrls: ['./cocktail-list.component.scss']
 })
