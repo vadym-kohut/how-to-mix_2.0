@@ -17,7 +17,8 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/how-to-mix",
+                        "outputPath": "docs",
+                        "baseHref": "/How-To-Mix/",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": ["zone.js"],
