@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-3 mb-2" *ngFor="let cocktail of cocktailList$ | async">
+    <div class="col-3 gy-3 gx-3" *ngFor="let cocktail of cocktailList$ | async">
         <htm-cocktail-card
             [cocktailDetails]="cocktail"
         ></htm-cocktail-card>
