@@ -4,7 +4,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
-import { ChosenIngredientsComponent } from "./chosen-ingredients/chosen-ingredients.component";
 import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -16,7 +15,6 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { appReducer } from "./state/app.state";
 import { CommonModule } from "@angular/common";
-import { ChosenIngComponent } from "./chosen-ingredients/chosen-ing/chosen-ing.component";
 import { environment } from "../environments/environment";
 import { SpinnerComponent } from "./shared/components/spinner/spinner.component";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
@@ -27,9 +25,7 @@ import { LoaderInterceptor } from "./shared/interceptors/loader.interceptor";
         AppComponent,
         HeaderComponent,
         SidebarComponent,
-        ChosenIngredientsComponent,
         PageNotFoundComponent,
-        ChosenIngComponent,
         SpinnerComponent
     ],
     imports: [
