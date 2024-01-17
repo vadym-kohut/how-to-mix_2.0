@@ -39,22 +39,22 @@ export const getCocktailDetails = createSelector(
 
 export const cocktailsReducer = createReducer(
     initialState,
-    on(CocktailActions.loadCocktailListByFirstLetterSuccess, (state, action): CocktailState => {
+    on(CocktailActions.loadCocktailListByFirstLetterSuccess, (state, { cocktailList }): CocktailState => {
         return {
             ...state,
-            cocktailListByFirstLetter: action.cocktailList
+            cocktailListByFirstLetter: cocktailList
         };
     }),
-    on(CocktailActions.loadCocktailListByIngredientSuccess, (state, action): CocktailState => {
+    on(CocktailActions.loadCocktailListByIngredientSuccess, (state, { cocktailList }): CocktailState => {
         return {
             ...state,
-            cocktailListByIngredient: action.cocktailList
-        }
+            cocktailListByIngredient: cocktailList
+        };
     }),
-    on(CocktailActions.loadCocktailDetailsSuccess, (state, action): CocktailState => {
+    on(CocktailActions.loadCocktailDetailsSuccess, (state, { cocktailDetails }): CocktailState => {
         return {
             ...state,
-            cocktailDetails: action.cocktailDetails
-        }
+            cocktailDetails: cocktailDetails
+        };
     })
 );
