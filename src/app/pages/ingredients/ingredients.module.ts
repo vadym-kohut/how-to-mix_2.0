@@ -17,14 +17,14 @@ import { ChosenIngredientListComponent } from "./chosen-ingredient-list/chosen-i
         IngredientsComponent,
         IngredientListComponent,
         IngredientDetailsComponent,
-        IngredientCardComponent
+        IngredientCardComponent,
+        ChosenIngredientListComponent
     ],
     imports: [
         CommonModule,
         IngredientsRoutingModule,
         StoreModule.forFeature("ingredients", ingredientsReducer),
         EffectsModule.forFeature([IngredientsEffects]),
-        ChosenIngredientListComponent
     ]
 })
 export class IngredientsModule {
