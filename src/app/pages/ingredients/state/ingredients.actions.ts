@@ -12,7 +12,7 @@ export const loadIngredientListSuccess = createAction(
 
 export const addToChosenIngredientList = createAction(
     "[Ingredients] Add To Chosen Ingredient List",
-    props<{ ingredient: IngredientListItem }>()
+    props<{ ingredientName: IngredientListItem["strIngredient1"] }>()
 );
 
 export const loadIngredientDetails = createAction(

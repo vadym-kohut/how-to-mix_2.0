@@ -1,6 +1,9 @@
 <div class="card-container">
-    <img alt="Ingredient image" src="https://www.thecocktaildb.com/images/ingredients/{{ ingredientName }}-Medium.png" />
+    <img alt="Ingredient image"
+         src="https://www.thecocktaildb.com/images/ingredients/{{ ingredientName }}-Medium.png" />
     <div class="info">
         <div class="name">{{ ingredientName }}</div>
     </div>
+    <button class="btn btn-sm btn-light plus_button" (click)="addChosenIngredient(ingredientName); $event.stopPropagation()"><img alt="Plus icon" class="card_icon plus_icon" src="assets/img/plus-sign.png">
+    </button>
 </div>

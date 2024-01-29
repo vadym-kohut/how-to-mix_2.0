@@ -9,7 +9,7 @@ export interface State extends AppState.State {
 
 export interface IngredientsState {
     ingredientList: IngredientListItem[];
-    chosenIngredientList: IngredientListItem[];
+    chosenIngredientList: IngredientListItem["strIngredient1"][];
     ingredientDetails: IngredientDetails | null;
 }
 
@@ -43,11 +43,12 @@ export const ingredientsReducer = createReducer(
             ingredientList: ingredientList
         };
     }),
-    on(IngredientsActions.addToChosenIngredientList, (state, { ingredient }): IngredientsState => {
-        return {
-            ...state,
-            chosenIngredientList: [...state.chosenIngredientList, ingredient]
-        };
+    on(IngredientsActions.addToChosenIngredientList, (state, { ingredientName }): IngredientsState => {
+        return state.chosenIngredientList.includes(ingredientName) ? state :
+            {
+                ...state,
+                chosenIngredientList: [...state.chosenIngredientList, ingredientName]
+            };
     }),
     on(IngredientsActions.loadIngredientDetailsSuccess, (state, { ingredientDetails }): IngredientsState => {
         return {

@@ -1,7 +1,7 @@
 .card-container {
     border-radius: 0.375rem;
     position: relative;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
     cursor: pointer;
     background-color: #ececec;
     transition: 0.3s;
@@ -29,5 +29,27 @@
 
 .card-container:hover > .info {
     opacity: 1;
+    transition: 0.3s;
+}
+
+.plus_button {
+    position: absolute;
+    right: 0;
+    bottom: 40px;
+    background: transparent;
+    border: none;
+}
+
+.card_icon {
+    height: 25px;
+}
+
+.plus_icon {
+    height: 50px;
+    border-radius: 50%;
+}
+
+.plus_icon:hover {
+    background: green;
     transition: 0.3s;
 }

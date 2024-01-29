@@ -6,6 +6,7 @@
         <htm-ingredient-card
             routerLink="/ingredients/details/{{ingredient.strIngredient1}}"
             [ingredientName]="ingredient.strIngredient1"
+            (choseIngredientEvent)="addChosenIngredient($event)"
         ></htm-ingredient-card>
     </div>
 </div>

@@ -11,6 +11,7 @@ import * as IngredientActions from "../state/ingredients.actions";
     styleUrls: ["./ingredient-list.component.scss"]
 })
 export class IngredientListComponent implements OnInit {
+
     allIngredientsList$ = new Observable<IngredientListItem[]>();
 
     constructor(private store: Store<State>) {
@@ -20,4 +21,9 @@ export class IngredientListComponent implements OnInit {
         this.allIngredientsList$ = this.store.select(getIngredients);
         this.store.dispatch(IngredientActions.loadIngredientList());
     }
+
+    addChosenIngredient(ingredientName: string) {
+        this.store.dispatch(IngredientActions.addToChosenIngredientList({ ingredientName }));
+    }
+
 }

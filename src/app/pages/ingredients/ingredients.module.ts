@@ -10,6 +10,7 @@ import { StoreModule } from "@ngrx/store";
 import { ingredientsReducer } from "./state/ingredients.reducer";
 import { EffectsModule } from "@ngrx/effects";
 import { IngredientsEffects } from "./state/ingredients.effects";
+import { ChosenIngredientListComponent } from "./chosen-ingredient-list/chosen-ingredient-list.component";
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { IngredientsEffects } from "./state/ingredients.effects";
         CommonModule,
         IngredientsRoutingModule,
         StoreModule.forFeature("ingredients", ingredientsReducer),
-        EffectsModule.forFeature([IngredientsEffects])
+        EffectsModule.forFeature([IngredientsEffects]),
+        ChosenIngredientListComponent
     ]
 })
 export class IngredientsModule {
