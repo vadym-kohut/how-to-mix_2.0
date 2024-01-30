@@ -5,10 +5,7 @@ import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
-import { MatGridListModule } from "@angular/material/grid-list";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatListModule } from "@angular/material/list";
-import { MatIconModule } from "@angular/material/icon";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
@@ -30,10 +27,7 @@ import { LoaderInterceptor } from "./shared/interceptors/loader.interceptor";
         CommonModule,
         BrowserModule,
         AppRoutingModule,
-        MatGridListModule,
         BrowserAnimationsModule,
-        MatListModule,
-        MatIconModule,
         HttpClientModule,
         SpinnerComponent,
         StoreModule.forRoot(appReducer),
