@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { IngredientDetails, IngredientListItem, IngredientListResponse } from '../models/ingredient.model';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class IngredientDBService {
     constructor(private http: HttpClient) {
     }

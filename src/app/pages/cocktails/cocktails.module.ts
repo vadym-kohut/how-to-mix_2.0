@@ -11,6 +11,7 @@ import { cocktailsReducer } from "./state/cocktails.reducer";
 import { EffectsModule } from "@ngrx/effects";
 import { CocktailsEffects } from "./state/cocktails.effects";
 import { CocktailCardComponent } from "../../shared/components/cocktail-card/cocktail-card.component";
+import { CocktailDbService } from "../../shared/services/cocktail-db.service";
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { CocktailCardComponent } from "../../shared/components/cocktail-card/coc
         CocktailCardComponent,
         StoreModule.forFeature("cocktails", cocktailsReducer),
         EffectsModule.forFeature([CocktailsEffects])
-    ]
+    ],
+    providers: [CocktailDbService]
 })
 export class CocktailsModule {
 }

@@ -3,9 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { map, Observable } from "rxjs";
 import { CocktailDetails, CocktailDetailsResponse, CocktailListItem } from "../models/cocktail.model";
 
-@Injectable({
-    providedIn: "root"
-})
+@Injectable()
 export class CocktailDbService {
 
     constructor(private http: HttpClient) {

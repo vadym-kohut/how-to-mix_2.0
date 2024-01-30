@@ -11,6 +11,7 @@ import { ingredientsReducer } from "./state/ingredients.reducer";
 import { EffectsModule } from "@ngrx/effects";
 import { IngredientsEffects } from "./state/ingredients.effects";
 import { ChosenIngredientListComponent } from "./chosen-ingredient-list/chosen-ingredient-list.component";
+import { IngredientDBService } from "../../shared/services/ingredient-db.service";
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { ChosenIngredientListComponent } from "./chosen-ingredient-list/chosen-i
         IngredientsRoutingModule,
         StoreModule.forFeature("ingredients", ingredientsReducer),
         EffectsModule.forFeature([IngredientsEffects]),
-    ]
+    ],
+    providers: [IngredientDBService]
 })
 export class IngredientsModule {
 }
