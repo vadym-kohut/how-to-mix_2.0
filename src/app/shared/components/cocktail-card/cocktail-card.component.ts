@@ -6,8 +6,8 @@ import { RouterLink } from "@angular/router";
     selector: "htm-cocktail-card",
     templateUrl: "./cocktail-card.component.html",
     styleUrls: ["./cocktail-card.component.scss"],
-    imports: [RouterLink],
-    standalone: true
+    standalone: true,
+    imports: [RouterLink]
 })
 export class CocktailCardComponent {
     @Input() cocktailDetails!: CocktailDetails | CocktailListItem;

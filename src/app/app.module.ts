@@ -17,7 +17,6 @@ import { appReducer } from "./state/app.state";
 import { CommonModule } from "@angular/common";
 import { environment } from "../environments/environment";
 import { SpinnerComponent } from "./shared/components/spinner/spinner.component";
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { LoaderInterceptor } from "./shared/interceptors/loader.interceptor";
 
 @NgModule({
@@ -25,8 +24,7 @@ import { LoaderInterceptor } from "./shared/interceptors/loader.interceptor";
         AppComponent,
         HeaderComponent,
         SidebarComponent,
-        PageNotFoundComponent,
-        SpinnerComponent
+        PageNotFoundComponent
     ],
     imports: [
         CommonModule,
@@ -37,14 +35,14 @@ import { LoaderInterceptor } from "./shared/interceptors/loader.interceptor";
         MatListModule,
         MatIconModule,
         HttpClientModule,
+        SpinnerComponent,
         StoreModule.forRoot(appReducer),
         EffectsModule.forRoot([]),
         StoreDevtoolsModule.instrument({
             name: "HowToMix App Devtools",
             maxAge: 25,
             logOnly: environment.production
-        , connectInZone: true}),
-        MatProgressSpinnerModule
+        , connectInZone: true})
     ],
     providers: [
         {
