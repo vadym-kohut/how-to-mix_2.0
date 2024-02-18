@@ -20,6 +20,10 @@ export const removeFromChosenIngredientList = createAction(
     props<{ ingredientToRemoveName: IngredientListItem["strIngredient1"] }>()
 );
 
+export const clearChosenIngredientList = createAction(
+    "[Ingredients] Clear Chosen Ingredient List"
+);
+
 export const loadIngredientDetails = createAction(
     "[Ingredients] Load Ingredient Details",
     props<{ ingredientName: string }>()

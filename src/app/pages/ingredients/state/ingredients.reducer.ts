@@ -56,6 +56,12 @@ export const ingredientsReducer = createReducer(
             chosenIngredientList: state.chosenIngredientList.filter(ingredientName => ingredientName !== ingredientToRemoveName)
         };
     }),
+    on(IngredientsActions.clearChosenIngredientList, (state): IngredientsState => {
+        return {
+            ...state,
+            chosenIngredientList: []
+        };
+    }),
     on(IngredientsActions.loadIngredientDetailsSuccess, (state, { ingredientDetails }): IngredientsState => {
         return {
             ...state,

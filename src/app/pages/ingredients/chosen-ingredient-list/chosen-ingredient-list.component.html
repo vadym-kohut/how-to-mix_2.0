@@ -1,14 +1,27 @@
-<div class="chosen_ingredients">
-    <h3 class="text-center fs-4">Chosen ingredients</h3>
-    <hr>
-    <div class="list-group">
-        <li *ngFor="let ingredientName of chosenIngredientList$ | async"
-            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-            {{ingredientName}}
-            <img (click)="removeChosenIngredient(ingredientName)"
-                 alt="Remove Chosen Ingredient Icon"
-                 class="chosen_ingredient-remove"
-                 src="assets/img/delete.png">
-        </li>
+<ng-container *ngIf="(chosenIngredientList$ | async) as chosenIngredientList">
+    <div class="chosen_ingredients">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-between">
+                <span class="text-center fs-5">Chosen ingredients</span>
+                <img (click)="clearChosenIngredientList()"
+                     *ngIf="chosenIngredientList.length"
+                     alt="Remove Chosen Ingredient Icon"
+                     class="chosen_ingredient-remove"
+                     src="assets/img/delete.png">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="list-group">
+                <li *ngFor="let ingredientName of chosenIngredientList"
+                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    {{ ingredientName }}
+                    <img (click)="removeChosenIngredient(ingredientName)"
+                         alt="Remove Chosen Ingredient Icon"
+                         class="chosen_ingredient-remove"
+                         src="assets/img/delete.png">
+                </li>
+            </div>
+        </div>
     </div>
-</div>
+</ng-container>

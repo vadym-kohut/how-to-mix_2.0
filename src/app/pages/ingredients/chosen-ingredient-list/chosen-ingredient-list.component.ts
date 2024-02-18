@@ -24,4 +24,9 @@ export class ChosenIngredientListComponent implements OnInit {
     removeChosenIngredient(ingredientToRemoveName: IngredientListItem["strIngredient1"]) {
         this.store.dispatch(IngredientActions.removeFromChosenIngredientList({ ingredientToRemoveName }));
     }
+
+    clearChosenIngredientList() {
+        this.store.dispatch(IngredientActions.clearChosenIngredientList());
+    }
+
 }
