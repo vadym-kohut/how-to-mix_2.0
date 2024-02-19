@@ -14,4 +14,7 @@ export class IngredientCardComponent {
         this.choseIngredientEvent.emit(ingredientName);
     }
 
+    addToStopList(ingredientName: string) {
+
+    }
 }

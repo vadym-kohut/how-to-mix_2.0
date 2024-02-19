@@ -1,9 +1,15 @@
 <div class="card-container">
     <img alt="Ingredient image"
          src="https://www.thecocktaildb.com/images/ingredients/{{ ingredientName }}-Medium.png" />
-    <div class="info">
+    <div class="info d-flex justify-content-between">
         <div class="name">{{ ingredientName }}</div>
     </div>
-    <button class="btn btn-sm btn-light plus_button" (click)="addChosenIngredient(ingredientName); $event.stopPropagation()"><img alt="Plus icon" class="card_icon plus_icon" src="assets/img/plus-sign.png">
+    <button class="btn btn-sm btn-light card_button plus_button"
+            (click)="addChosenIngredient(ingredientName); $event.stopPropagation()">
+        <img alt="Plus icon" class="card_icon plus_icon" src="assets/img/plus-sign.png">
+    </button>
+    <button class="btn btn-sm btn-light card_button stop_button"
+            (click)="addToStopList(ingredientName); $event.stopPropagation()">
+        <img alt="Stop button" class="card_icon stop_icon" src="assets/img/forbidden.png">
     </button>
 </div>
