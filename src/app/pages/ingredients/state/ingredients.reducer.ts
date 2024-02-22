@@ -9,30 +9,36 @@ export interface State extends AppState.State {
 
 export interface IngredientsState {
     ingredientList: IngredientListItem[];
-    chosenIngredientList: IngredientListItem["strIngredient1"][];
     ingredientDetails: IngredientDetails | null;
+    chosenIngredientList: IngredientListItem["strIngredient1"][];
+    stopList: IngredientListItem["strIngredient1"][];
 }
 
 const initialState: IngredientsState = {
     ingredientList: [],
+    ingredientDetails: null,
     chosenIngredientList: [],
-    ingredientDetails: null
+    stopList: []
 };
 
 // Selectors
 const getIngredientFeatureState = createFeatureSelector<IngredientsState>("ingredients");
 
-export const getIngredients = createSelector(
+export const getIngredientList = createSelector(
     getIngredientFeatureState,
     state => state.ingredientList
+);
+export const getIngredientDetails = createSelector(
+    getIngredientFeatureState,
+    state => state.ingredientDetails
 );
 export const getChosenIngredientList = createSelector(
     getIngredientFeatureState,
     state => state.chosenIngredientList
 );
-export const getIngredientDetails = createSelector(
+export const getStopList = createSelector(
     getIngredientFeatureState,
-    state => state.ingredientDetails
+    state => state.stopList
 );
 
 export const ingredientsReducer = createReducer(
@@ -41,6 +47,12 @@ export const ingredientsReducer = createReducer(
         return {
             ...state,
             ingredientList: ingredientList
+        };
+    }),
+    on(IngredientsActions.loadIngredientDetailsSuccess, (state, { ingredientDetails }): IngredientsState => {
+        return {
+            ...state,
+            ingredientDetails: ingredientDetails
         };
     }),
     on(IngredientsActions.addToChosenIngredientList, (state, { ingredientName }): IngredientsState => {
@@ -62,10 +74,23 @@ export const ingredientsReducer = createReducer(
             chosenIngredientList: []
         };
     }),
-    on(IngredientsActions.loadIngredientDetailsSuccess, (state, { ingredientDetails }): IngredientsState => {
+    on(IngredientsActions.addToStopList, (state, { ingredientName }): IngredientsState => {
+        return state.stopList.includes(ingredientName) ? state :
+            {
+                ...state,
+                stopList: [...state.stopList, ingredientName]
+            };
+    }),
+    on(IngredientsActions.removeFromStopList, (state, { ingredientToRemoveName }): IngredientsState => {
         return {
             ...state,
-            ingredientDetails: ingredientDetails
+            stopList: state.stopList.filter(ingredientName => ingredientName !== ingredientToRemoveName)
+        };
+    }),
+    on(IngredientsActions.clearStopList, (state): IngredientsState => {
+        return {
+            ...state,
+            stopList: []
         };
     })
 );

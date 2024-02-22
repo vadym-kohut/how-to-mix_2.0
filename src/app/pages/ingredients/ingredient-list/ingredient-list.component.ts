@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { IngredientListItem } from "../../../shared/models/ingredient.model";
-import { getIngredients, State } from "../state/ingredients.reducer";
+import { getIngredientList, State } from "../state/ingredients.reducer";
 import * as IngredientActions from "../state/ingredients.actions";
 
 @Component({
@@ -18,12 +18,16 @@ export class IngredientListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.allIngredientsList$ = this.store.select(getIngredients);
+        this.allIngredientsList$ = this.store.select(getIngredientList);
         this.store.dispatch(IngredientActions.loadIngredientList());
     }
 
     addChosenIngredient(ingredientName: string) {
         this.store.dispatch(IngredientActions.addToChosenIngredientList({ ingredientName }));
+    }
+
+    addToStopList(ingredientName: string) {
+        this.store.dispatch(IngredientActions.addToStopList({ ingredientName }));
     }
 
 }

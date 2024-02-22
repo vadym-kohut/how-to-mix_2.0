@@ -10,6 +10,16 @@ export const loadIngredientListSuccess = createAction(
     props<{ ingredientList: IngredientListItem[] }>()
 );
 
+export const loadIngredientDetails = createAction(
+    "[Ingredients] Load Ingredient Details",
+    props<{ ingredientName: string }>()
+);
+
+export const loadIngredientDetailsSuccess = createAction(
+    "[Ingredients] Load Ingredient Details Success",
+    props<{ ingredientDetails: IngredientDetails }>()
+);
+
 export const addToChosenIngredientList = createAction(
     "[Ingredients] Add To Chosen Ingredient List",
     props<{ ingredientName: IngredientListItem["strIngredient1"] }>()
@@ -24,12 +34,16 @@ export const clearChosenIngredientList = createAction(
     "[Ingredients] Clear Chosen Ingredient List"
 );
 
-export const loadIngredientDetails = createAction(
-    "[Ingredients] Load Ingredient Details",
-    props<{ ingredientName: string }>()
+export const addToStopList = createAction(
+    "[Ingredients] Add To Stop List",
+    props<{ ingredientName: IngredientListItem["strIngredient1"] }>()
 );
 
-export const loadIngredientDetailsSuccess = createAction(
-    "[Ingredients] Load Ingredient Details Success",
-    props<{ ingredientDetails: IngredientDetails }>()
+export const removeFromStopList = createAction(
+    "[Ingredients] Remove From Stop List",
+    props<{ ingredientToRemoveName: IngredientListItem["strIngredient1"] }>()
+);
+
+export const clearStopList = createAction(
+    "[Ingredients] Clear Stop List"
 );

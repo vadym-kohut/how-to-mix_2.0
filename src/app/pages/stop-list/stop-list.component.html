@@ -1,1 +1,18 @@
-<p>stop-list works!</p>
+<ng-container *ngIf="stopList$ | async as stopList">
+
+    <div *ngIf="stopList && stopList.length; else emptyStopList" class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="mb-0">Stop List</h1>
+        <img alt="Clear Stop List" src="assets/img/delete.png" class="chosen-ingredient_clear-icon" (click)="clearStopList()">
+    </div>
+
+    <ng-template #emptyStopList>
+        <h1>Stop List is empty</h1>
+    </ng-template>
+
+    <ul class="list-group">
+        <li *ngFor="let ingredientName of stopList" class="list-group-item d-flex justify-content-between align-items-center">{{ ingredientName }}
+            <img alt="Clear Stop List" src="assets/img/delete.png" class="chosen-ingredient_remove-icon" (click)="removeFromStopList(ingredientName)">
+        </li>
+    </ul>
+
+</ng-container>

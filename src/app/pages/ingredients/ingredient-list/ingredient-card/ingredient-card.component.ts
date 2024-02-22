@@ -8,13 +8,14 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 export class IngredientCardComponent {
 
     @Input() ingredientName: string = '';
-    @Output() choseIngredientEvent = new EventEmitter<string>();
+    @Output() addChosenIngredientEvent = new EventEmitter<string>();
+    @Output() addToStopListEvent = new EventEmitter<string>();
 
     addChosenIngredient(ingredientName: string) {
-        this.choseIngredientEvent.emit(ingredientName);
+        this.addChosenIngredientEvent.emit(ingredientName);
     }
 
     addToStopList(ingredientName: string) {
-
+        this.addToStopListEvent.emit(ingredientName);
     }
 }
