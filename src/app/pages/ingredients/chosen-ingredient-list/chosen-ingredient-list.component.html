@@ -3,11 +3,14 @@
         <div class="row mb-1">
             <div class="col-12 d-flex justify-content-around align-items-center">
                 <span class="text-center fs-5">Chosen ingredients</span>
-                <img (click)="clearChosenIngredientList()"
-                     *ngIf="chosenIngredientList.length"
+                <img *ngIf="chosenIngredientList.length"
                      alt="Remove Chosen Ingredient Icon"
                      class="chosen-ingredient_clear-icon"
-                     src="assets/img/delete.png">
+                     src="assets/img/delete.png"
+                     tabindex="0"
+                     role="button"
+                     (keydown.enter)="clearChosenIngredientList()"
+                     (click)="clearChosenIngredientList()">
                 <hr>
             </div>
         </div>
@@ -16,10 +19,13 @@
                 <li *ngFor="let ingredientName of chosenIngredientList"
                     class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                     {{ ingredientName }}
-                    <img (click)="removeChosenIngredient(ingredientName)"
-                         alt="Remove Chosen Ingredient Icon"
+                    <img alt="Remove Chosen Ingredient Icon"
                          class="chosen-ingredient_clear-icon"
-                         src="assets/img/delete.png">
+                         src="assets/img/delete.png"
+                         tabindex="0"
+                         role="button"
+                         (keydown.enter)="removeChosenIngredient(ingredientName)"
+                         (click)="removeChosenIngredient(ingredientName)">
                 </li>
             </div>
         </div>

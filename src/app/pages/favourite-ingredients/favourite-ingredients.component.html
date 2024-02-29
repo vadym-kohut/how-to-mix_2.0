@@ -2,7 +2,13 @@
 
     <div *ngIf="favouriteIngredientList && favouriteIngredientList.length; else emptyFavouriteIngredientList" class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="mb-0">Favourite Ingredient List</h1>
-        <img alt="Clear favourite ingredient list" src="assets/img/delete.png" class="favourite-ingredient_clear-icon" (click)="clearFavouriteIngredients()">
+        <img alt="Clear favourite ingredient list"
+             src="assets/img/delete.png"
+             class="favourite-ingredient_clear-icon"
+             tabindex="0"
+             role="button"
+             (keydown.enter)="clearFavouriteIngredients()"
+             (click)="clearFavouriteIngredients()">
     </div>
 
     <ng-template #emptyFavouriteIngredientList>
@@ -11,7 +17,13 @@
 
     <ul class="list-group">
         <li *ngFor="let ingredientName of favouriteIngredientList" class="list-group-item d-flex justify-content-between align-items-center">{{ ingredientName }}
-            <img alt="Clear favourite ingredient list" src="assets/img/delete.png" class="favourite-ingredient_remove-icon" (click)="removeFavouriteIngredient(ingredientName)">
+            <img alt="Clear favourite ingredient list"
+                 src="assets/img/delete.png"
+                 class="favourite-ingredient_remove-icon"
+                 tabindex="0"
+                 role="button"
+                 (keydown.enter)="removeFavouriteIngredient(ingredientName)"
+                 (click)="removeFavouriteIngredient(ingredientName)">
         </li>
     </ul>
 

@@ -2,7 +2,13 @@
 
     <div *ngIf="stopList && stopList.length; else emptyStopList" class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="mb-0">Stop List</h1>
-        <img alt="Clear Stop List" src="assets/img/delete.png" class="chosen-ingredient_clear-icon" (click)="clearStopList()">
+        <img alt="Clear Stop List"
+             src="assets/img/delete.png"
+             class="chosen-ingredient_clear-icon"
+             tabindex="0"
+             role="button"
+             (keydown.enter)="clearStopList()"
+             (click)="clearStopList()">
     </div>
 
     <ng-template #emptyStopList>
@@ -11,7 +17,13 @@
 
     <ul class="list-group">
         <li *ngFor="let ingredientName of stopList" class="list-group-item d-flex justify-content-between align-items-center">{{ ingredientName }}
-            <img alt="Clear Stop List" src="assets/img/delete.png" class="chosen-ingredient_remove-icon" (click)="removeFromStopList(ingredientName)">
+            <img alt="Clear Stop List"
+                 src="assets/img/delete.png"
+                 class="chosen-ingredient_remove-icon"
+                 tabindex="0"
+                 role="button"
+                 (keydown.enter)="removeFromStopList(ingredientName)"
+                 (click)="removeFromStopList(ingredientName)">
         </li>
     </ul>
 

@@ -15,9 +15,9 @@ export class LoaderInterceptor implements HttpInterceptor {
     }
 
     intercept(
-        req: HttpRequest<any>,
+        req: HttpRequest<any>, // eslint-disable-line
         next: HttpHandler
-    ): Observable<HttpEvent<any>> {
+    ): Observable<HttpEvent<any>> { // eslint-disable-line
         this.loader.showLoader();
         return next.handle(req).pipe(
             finalize(() => this.loader.hideLoader())
