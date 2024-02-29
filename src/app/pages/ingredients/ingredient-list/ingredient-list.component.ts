@@ -12,13 +12,12 @@ import * as IngredientActions from "../state/ingredients.actions";
 })
 export class IngredientListComponent implements OnInit {
 
-    allIngredientsList$ = new Observable<IngredientListItem[]>();
+    allIngredientsList$: Observable<IngredientListItem[]> = this.store.select(getIngredientList);
 
     constructor(private store: Store<State>) {
     }
 
     ngOnInit(): void {
-        this.allIngredientsList$ = this.store.select(getIngredientList);
         this.store.dispatch(IngredientActions.loadIngredientList());
     }
 
@@ -28,6 +27,10 @@ export class IngredientListComponent implements OnInit {
 
     addToStopList(ingredientName: string) {
         this.store.dispatch(IngredientActions.addToStopList({ ingredientName }));
+    }
+
+    addFavouriteIngredient(ingredientName: string) {
+        this.store.dispatch(IngredientActions.addToFavouriteIngredientList({ ingredientName }));
     }
 
 }

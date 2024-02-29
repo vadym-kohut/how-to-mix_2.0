@@ -10,15 +10,17 @@ export interface State extends AppState.State {
 export interface IngredientsState {
     ingredientList: IngredientListItem[];
     ingredientDetails: IngredientDetails | null;
-    chosenIngredientList: IngredientListItem["strIngredient1"][];
-    stopList: IngredientListItem["strIngredient1"][];
+    chosenIngredientList: string[];
+    favouriteIngredientList: string[];
+    stopList: string[];
 }
 
 const initialState: IngredientsState = {
     ingredientList: [],
     ingredientDetails: null,
-    chosenIngredientList: [],
-    stopList: []
+    chosenIngredientList: ['Bourbon', 'Sweet Vermouth', 'Campari'],
+    favouriteIngredientList: ['Rum', 'Scotch'],
+    stopList: ['Orange bitters', 'Orange']
 };
 
 // Selectors
@@ -35,6 +37,10 @@ export const getIngredientDetails = createSelector(
 export const getChosenIngredientList = createSelector(
     getIngredientFeatureState,
     state => state.chosenIngredientList
+);
+export const getFavouriteIngredientList = createSelector(
+    getIngredientFeatureState,
+    state => state.favouriteIngredientList
 );
 export const getStopList = createSelector(
     getIngredientFeatureState,
@@ -72,6 +78,25 @@ export const ingredientsReducer = createReducer(
         return {
             ...state,
             chosenIngredientList: []
+        };
+    }),
+    on(IngredientsActions.addToFavouriteIngredientList, (state, { ingredientName }): IngredientsState => {
+        return state.favouriteIngredientList.includes(ingredientName) ? state :
+            {
+                ...state,
+                favouriteIngredientList: [...state.favouriteIngredientList, ingredientName]
+            };
+    }),
+    on(IngredientsActions.removeFromFavouriteIngredientList, (state, { ingredientToRemoveName }): IngredientsState => {
+        return {
+            ...state,
+            favouriteIngredientList: state.favouriteIngredientList.filter(ingredientName => ingredientName !== ingredientToRemoveName)
+        };
+    }),
+    on(IngredientsActions.clearFavouriteIngredientList, (state): IngredientsState => {
+        return {
+            ...state,
+            favouriteIngredientList: []
         };
     }),
     on(IngredientsActions.addToStopList, (state, { ingredientName }): IngredientsState => {

@@ -12,7 +12,7 @@ import * as CocktailActions from '../state/cocktails.actions';
 })
 export class CocktailListComponent implements OnInit {
 
-    cocktailList$ = new Observable<CocktailDetails[]>();
+    cocktailList$: Observable<CocktailDetails[]> = this.store.select(getCocktailsByFirstLetter);
 
     constructor(
         private store: Store<State>
@@ -20,7 +20,6 @@ export class CocktailListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.cocktailList$ = this.store.select(getCocktailsByFirstLetter);
         this.store.dispatch(CocktailActions.loadCocktailListByFirstLetter({ firstLetter: 'a' }));
     }
 

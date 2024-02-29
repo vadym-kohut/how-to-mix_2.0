@@ -1,6 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { Observable } from "rxjs";
-import { IngredientListItem } from "../../../shared/models/ingredient.model";
 import { Store } from "@ngrx/store";
 import { getChosenIngredientList, State } from "../state/ingredients.reducer";
 import * as IngredientActions from "../state/ingredients.actions";
@@ -10,18 +9,16 @@ import * as IngredientActions from "../state/ingredients.actions";
     templateUrl: "./chosen-ingredient-list.component.html",
     styleUrl: "./chosen-ingredient-list.component.scss"
 })
-export class ChosenIngredientListComponent implements OnInit {
+export class ChosenIngredientListComponent {
 
-    chosenIngredientList$ = new Observable<IngredientListItem["strIngredient1"][]>();
+    chosenIngredientList$: Observable<string[]> = this.store.select(getChosenIngredientList);
 
-    constructor(private store: Store<State>) {
+    constructor(
+        private store: Store<State>
+    ) {
     }
 
-    ngOnInit(): void {
-        this.chosenIngredientList$ = this.store.select(getChosenIngredientList);
-    }
-
-    removeChosenIngredient(ingredientToRemoveName: IngredientListItem["strIngredient1"]) {
+    removeChosenIngredient(ingredientToRemoveName: string) {
         this.store.dispatch(IngredientActions.removeFromChosenIngredientList({ ingredientToRemoveName }));
     }
 

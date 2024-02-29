@@ -1,15 +1,16 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
-    selector: 'htm-ingredient-card',
-    templateUrl: './ingredient-card.component.html',
-    styleUrls: ['./ingredient-card.component.scss'],
+    selector: "htm-ingredient-card",
+    templateUrl: "./ingredient-card.component.html",
+    styleUrls: ["./ingredient-card.component.scss"]
 })
 export class IngredientCardComponent {
 
-    @Input() ingredientName: string = '';
+    @Input() ingredientName: string = "";
     @Output() addChosenIngredientEvent = new EventEmitter<string>();
     @Output() addToStopListEvent = new EventEmitter<string>();
+    @Output() addFavouriteIngredientEvent = new EventEmitter<string>();
 
     addChosenIngredient(ingredientName: string) {
         this.addChosenIngredientEvent.emit(ingredientName);
@@ -17,5 +18,9 @@ export class IngredientCardComponent {
 
     addToStopList(ingredientName: string) {
         this.addToStopListEvent.emit(ingredientName);
+    }
+
+    addFavouriteIngredient(ingredientName: string) {
+        this.addFavouriteIngredientEvent.emit(ingredientName);
     }
 }

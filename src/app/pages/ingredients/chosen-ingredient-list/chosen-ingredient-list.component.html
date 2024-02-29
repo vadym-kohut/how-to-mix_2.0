@@ -1,12 +1,12 @@
 <ng-container *ngIf="(chosenIngredientList$ | async) as chosenIngredientList">
     <div class="chosen_ingredients">
-        <div class="row">
-            <div class="col-12 d-flex justify-content-between">
+        <div class="row mb-1">
+            <div class="col-12 d-flex justify-content-around align-items-center">
                 <span class="text-center fs-5">Chosen ingredients</span>
                 <img (click)="clearChosenIngredientList()"
                      *ngIf="chosenIngredientList.length"
                      alt="Remove Chosen Ingredient Icon"
-                     class="chosen_ingredient-remove"
+                     class="chosen-ingredient_clear-icon"
                      src="assets/img/delete.png">
                 <hr>
             </div>
@@ -18,7 +18,7 @@
                     {{ ingredientName }}
                     <img (click)="removeChosenIngredient(ingredientName)"
                          alt="Remove Chosen Ingredient Icon"
-                         class="chosen_ingredient-remove"
+                         class="chosen-ingredient_clear-icon"
                          src="assets/img/delete.png">
                 </li>
             </div>

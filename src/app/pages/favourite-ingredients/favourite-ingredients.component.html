@@ -1,1 +1,18 @@
-<p>favourite-ingredients works!</p>
+<ng-container *ngIf="favouriteIngredientList$ | async as favouriteIngredientList">
+
+    <div *ngIf="favouriteIngredientList && favouriteIngredientList.length; else emptyFavouriteIngredientList" class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="mb-0">Favourite Ingredient List</h1>
+        <img alt="Clear favourite ingredient list" src="assets/img/delete.png" class="favourite-ingredient_clear-icon" (click)="clearFavouriteIngredients()">
+    </div>
+
+    <ng-template #emptyFavouriteIngredientList>
+        <h1>Favourite Ingredient List is empty</h1>
+    </ng-template>
+
+    <ul class="list-group">
+        <li *ngFor="let ingredientName of favouriteIngredientList" class="list-group-item d-flex justify-content-between align-items-center">{{ ingredientName }}
+            <img alt="Clear favourite ingredient list" src="assets/img/delete.png" class="favourite-ingredient_remove-icon" (click)="removeFavouriteIngredient(ingredientName)">
+        </li>
+    </ul>
+
+</ng-container>
