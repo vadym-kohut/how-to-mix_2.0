@@ -1,6 +1,7 @@
 <ng-container *ngIf="favouriteIngredientList$ | async as favouriteIngredientList">
 
-    <div *ngIf="favouriteIngredientList && favouriteIngredientList.length; else emptyFavouriteIngredientList" class="d-flex justify-content-between align-items-center mb-3">
+    <div *ngIf="favouriteIngredientList && favouriteIngredientList.length; else emptyFavouriteIngredientList"
+         class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="mb-0">Favourite Ingredient List</h1>
         <img alt="Clear favourite ingredient list"
              src="assets/img/delete.png"
@@ -16,7 +17,10 @@
     </ng-template>
 
     <ul class="list-group">
-        <li *ngFor="let ingredientName of favouriteIngredientList" class="list-group-item d-flex justify-content-between align-items-center">{{ ingredientName }}
+        <li *ngFor="let ingredientName of favouriteIngredientList"
+            class="list-group-item d-flex justify-content-between align-items-center"
+            routerLink="/ingredients/details/{{ingredientName}}">
+            {{ ingredientName }}
             <img alt="Clear favourite ingredient list"
                  src="assets/img/delete.png"
                  class="favourite-ingredient_remove-icon"

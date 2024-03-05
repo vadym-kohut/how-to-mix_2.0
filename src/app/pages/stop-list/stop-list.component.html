@@ -1,6 +1,7 @@
 <ng-container *ngIf="stopList$ | async as stopList">
 
-    <div *ngIf="stopList && stopList.length; else emptyStopList" class="d-flex justify-content-between align-items-center mb-3">
+    <div *ngIf="stopList && stopList.length; else emptyStopList"
+         class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="mb-0">Stop List</h1>
         <img alt="Clear Stop List"
              src="assets/img/delete.png"
@@ -16,7 +17,10 @@
     </ng-template>
 
     <ul class="list-group">
-        <li *ngFor="let ingredientName of stopList" class="list-group-item d-flex justify-content-between align-items-center">{{ ingredientName }}
+        <li *ngFor="let ingredientName of stopList"
+            class="list-group-item d-flex justify-content-between align-items-center"
+            routerLink="/ingredients/details/{{ingredientName}}">
+            {{ ingredientName }}
             <img alt="Clear Stop List"
                  src="assets/img/delete.png"
                  class="chosen-ingredient_remove-icon"
