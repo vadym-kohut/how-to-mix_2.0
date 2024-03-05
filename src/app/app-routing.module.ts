@@ -4,11 +4,6 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 
 const routes: Routes = [
     {
-        path: 'cart',
-        loadChildren: () =>
-            import('./pages/cart/cart.module').then((m) => m.CartModule),
-    },
-    {
         path: 'cocktails',
         loadChildren: () =>
             import('./pages/cocktails/cocktails.module').then(
