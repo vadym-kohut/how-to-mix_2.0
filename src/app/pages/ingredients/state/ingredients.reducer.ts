@@ -49,18 +49,21 @@ export const getStopList = createSelector(
 
 export const ingredientsReducer = createReducer(
     initialState,
+    // LOAD INGREDIENT LIST
     on(IngredientsActions.loadIngredientListSuccess, (state, { ingredientList }): IngredientsState => {
         return {
             ...state,
             ingredientList: ingredientList
         };
     }),
+    // LOAD INGREDIENT DETAILS
     on(IngredientsActions.loadIngredientDetailsSuccess, (state, { ingredientDetails }): IngredientsState => {
         return {
             ...state,
             ingredientDetails: ingredientDetails
         };
     }),
+    // CHOSEN INGREDIENT LIST
     on(IngredientsActions.addToChosenIngredientList, (state, { ingredientName }): IngredientsState => {
         return state.chosenIngredientList.includes(ingredientName) ? state :
             {
@@ -80,6 +83,7 @@ export const ingredientsReducer = createReducer(
             chosenIngredientList: []
         };
     }),
+    // FAVOURITE INGREDIENT LIST
     on(IngredientsActions.addToFavouriteIngredientList, (state, { ingredientName }): IngredientsState => {
         return state.favouriteIngredientList.includes(ingredientName) ? state :
             {
@@ -99,6 +103,7 @@ export const ingredientsReducer = createReducer(
             favouriteIngredientList: []
         };
     }),
+    // STOP LIST
     on(IngredientsActions.addToStopList, (state, { ingredientName }): IngredientsState => {
         return state.stopList.includes(ingredientName) ? state :
             {
