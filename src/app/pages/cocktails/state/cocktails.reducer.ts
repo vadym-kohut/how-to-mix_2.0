@@ -18,7 +18,7 @@ const initialState: CocktailState = {
     cocktailListByFirstLetter: [],
     cocktailListByIngredient: [],
     cocktailDetails: null,
-    favouriteCocktailList: []
+    favouriteCocktailList: ['A. J.', 'Americano', 'Boulevardier']
 };
 
 // Selectors

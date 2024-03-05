@@ -1,1 +1,30 @@
-<p>favourite-cocktails works!</p>
+<ng-container *ngIf="favoriteCocktailList$ | async as favouriteCocktailList">
+
+    <div *ngIf="favouriteCocktailList && favouriteCocktailList.length; else emptyFavouriteCocktailList" class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="mb-0">Favourite Cocktail List</h1>
+        <img alt="Clear favourite cocktail list"
+             src="assets/img/delete.png"
+             class="favourite-cocktail_clear-icon"
+             tabindex="0"
+             role="button"
+             (keydown.enter)="clearFavouriteCocktails()"
+             (click)="clearFavouriteCocktails()">
+    </div>
+
+    <ng-template #emptyFavouriteCocktailList>
+        <h1>Favourite Cocktail List is empty</h1>
+    </ng-template>
+
+    <ul class="list-group">
+        <li *ngFor="let cocktailName of favouriteCocktailList" class="list-group-item d-flex justify-content-between align-items-center">{{ cocktailName }}
+            <img alt="Clear favourite cocktail list"
+                 src="assets/img/delete.png"
+                 class="favourite-cocktail_remove-icon"
+                 tabindex="0"
+                 role="button"
+                 (keydown.enter)="removeFavouriteCocktail(cocktailName)"
+                 (click)="removeFavouriteCocktail(cocktailName)">
+        </li>
+    </ul>
+
+</ng-container>
