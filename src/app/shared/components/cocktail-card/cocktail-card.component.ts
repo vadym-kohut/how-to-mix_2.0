@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { CocktailDetails, CocktailListItem } from "../../models/cocktail.model";
 import { RouterLink } from "@angular/router";
 
@@ -10,5 +10,12 @@ import { RouterLink } from "@angular/router";
     imports: [RouterLink]
 })
 export class CocktailCardComponent {
+
     @Input() cocktailDetails!: CocktailDetails | CocktailListItem;
+    @Output() addFavouriteCocktailEvent = new EventEmitter<string>();
+
+    addFavouriteCocktail(cocktailName: string) {
+        this.addFavouriteCocktailEvent.emit(cocktailName);
+    }
+
 }

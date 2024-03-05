@@ -31,3 +31,24 @@
     opacity: 1;
     transition: 0.3s;
 }
+
+.card_button {
+    position: absolute;
+    background: transparent;
+    border: none;
+}
+
+.favourite_button {
+    left: 5px;
+    top: 25px;
+}
+
+.card_icon {
+    height: 25px;
+    border-radius: 50%;
+}
+
+.card_icon:hover {
+    background: green;
+    transition: 0.3s;
+}

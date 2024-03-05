@@ -3,12 +3,12 @@ import { Observable } from "rxjs";
 import { CocktailDetails } from "../../../shared/models/cocktail.model";
 import { Store } from "@ngrx/store";
 import { getCocktailsByFirstLetter, State } from "../state/cocktails.reducer";
-import * as CocktailActions from '../state/cocktails.actions';
+import * as CocktailActions from "../state/cocktails.actions";
 
 @Component({
-  selector: 'htm-cocktail-list',
-  templateUrl: './cocktail-list.component.html',
-  styleUrls: ['./cocktail-list.component.scss']
+    selector: "htm-cocktail-list",
+    templateUrl: "./cocktail-list.component.html",
+    styleUrls: ["./cocktail-list.component.scss"]
 })
 export class CocktailListComponent implements OnInit {
 
@@ -20,7 +20,11 @@ export class CocktailListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.store.dispatch(CocktailActions.loadCocktailListByFirstLetter({ firstLetter: 'a' }));
+        this.store.dispatch(CocktailActions.loadCocktailListByFirstLetter({ firstLetter: "a" }));
+    }
+
+    addFavouriteCocktail(cocktailName: string) {
+        this.store.dispatch(CocktailActions.addToFavouriteCocktailList({ cocktailName }));
     }
 
 }
