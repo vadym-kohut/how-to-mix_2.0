@@ -1,6 +1,6 @@
 export interface CocktailListItem {
     strDrink: string;
-    strDrinkThumb: string;
+    strDrinkThumb: string | null;
     idDrink: string;
 }
 

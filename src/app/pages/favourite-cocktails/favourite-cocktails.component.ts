@@ -3,6 +3,7 @@ import * as CocktailActions from "../cocktails/state/cocktails.actions";
 import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import { getFavouriteCocktailList, State } from "../cocktails/state/cocktails.reducer";
+import { CocktailListItem } from "../../shared/models/cocktail.model";
 
 @Component({
     selector: "htm-favourite-cocktails",
@@ -11,15 +12,15 @@ import { getFavouriteCocktailList, State } from "../cocktails/state/cocktails.re
 })
 export class FavouriteCocktailsComponent {
 
-    favoriteCocktailList$: Observable<string[]> = this.store.select(getFavouriteCocktailList);
+    favoriteCocktailList$: Observable<CocktailListItem[]> = this.store.select(getFavouriteCocktailList);
 
     constructor(
         private store: Store<State>
     ) {
     }
 
-    removeFavouriteCocktail(cocktailToRemoveName: string) {
-        this.store.dispatch(CocktailActions.removeFromFavouriteCocktailList({ cocktailToRemoveName }));
+    removeFavouriteCocktail(cocktailToRemove: CocktailListItem) {
+        this.store.dispatch(CocktailActions.removeFromFavouriteCocktailList({ cocktailToRemove }));
     }
 
     clearFavouriteCocktails() {

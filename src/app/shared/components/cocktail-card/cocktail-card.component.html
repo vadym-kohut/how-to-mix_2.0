@@ -4,7 +4,7 @@
         <div class="name">{{ cocktailDetails.strDrink }}</div>
     </div>
     <button class="btn btn-sm btn-light card_button favourite_button"
-            (click)="addFavouriteCocktail(cocktailDetails.strDrink); $event.stopPropagation()">
+            (click)="addFavouriteCocktail(cocktailDetails); $event.stopPropagation()">
         <img alt="Favourite button" class="card_icon favourite_icon" src="assets/img/heart.png">
     </button>
 </div>

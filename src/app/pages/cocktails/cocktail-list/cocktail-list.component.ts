@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { CocktailDetails } from "../../../shared/models/cocktail.model";
+import { CocktailDetails, CocktailListItem } from "../../../shared/models/cocktail.model";
 import { Store } from "@ngrx/store";
 import { getCocktailsByFirstLetter, State } from "../state/cocktails.reducer";
 import * as CocktailActions from "../state/cocktails.actions";
@@ -23,8 +23,8 @@ export class CocktailListComponent implements OnInit {
         this.store.dispatch(CocktailActions.loadCocktailListByFirstLetter({ firstLetter: "a" }));
     }
 
-    addFavouriteCocktail(cocktailName: string) {
-        this.store.dispatch(CocktailActions.addToFavouriteCocktailList({ cocktailName }));
+    addFavouriteCocktail(newCocktail: CocktailListItem) {
+        this.store.dispatch(CocktailActions.addToFavouriteCocktailList({ newCocktail }));
     }
 
 }

@@ -12,10 +12,18 @@ import { RouterLink } from "@angular/router";
 export class CocktailCardComponent {
 
     @Input() cocktailDetails!: CocktailDetails | CocktailListItem;
-    @Output() addFavouriteCocktailEvent = new EventEmitter<string>();
+    @Output() addFavouriteCocktailEvent = new EventEmitter<CocktailListItem>();
 
-    addFavouriteCocktail(cocktailName: string) {
-        this.addFavouriteCocktailEvent.emit(cocktailName);
+    addFavouriteCocktail(cocktail: CocktailDetails | CocktailListItem) {
+        this.addFavouriteCocktailEvent.emit(this.mapToCocktailListItem(cocktail));
+    }
+
+    mapToCocktailListItem(cocktail: CocktailDetails | CocktailListItem): CocktailListItem {
+        return {
+            strDrink: cocktail.strDrink,
+            strDrinkThumb: cocktail.strDrinkThumb,
+            idDrink: cocktail.idDrink
+        };
     }
 
 }

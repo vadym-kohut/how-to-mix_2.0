@@ -11,14 +11,25 @@ export interface CocktailState {
     cocktailListByFirstLetter: CocktailDetails[];
     cocktailListByIngredient: CocktailListItem[];
     cocktailDetails: CocktailDetails | null;
-    favouriteCocktailList: string[];
+    favouriteCocktailList: CocktailListItem[];
 }
 
 const initialState: CocktailState = {
     cocktailListByFirstLetter: [],
     cocktailListByIngredient: [],
     cocktailDetails: null,
-    favouriteCocktailList: ['A. J.', 'Americano', 'Boulevardier']
+    favouriteCocktailList: [
+        {
+            strDrink: "A1",
+            strDrinkThumb: "https://www.thecocktaildb.com/images/media/drink/2x8thr1504816928.jpg",
+            idDrink: "17222"
+        },
+        {
+            strDrink: "ABC",
+            strDrinkThumb: "https://www.thecocktaildb.com/images/media/drink/tqpvqp1472668328.jpg",
+            idDrink: "13501"
+        }
+    ]
 };
 
 // Selectors
@@ -65,17 +76,17 @@ export const cocktailsReducer = createReducer(
         };
     }),
     // FAVOURITE COCKTAIL LIST
-    on(CocktailActions.addToFavouriteCocktailList, (state, { cocktailName }): CocktailState => {
-        return state.favouriteCocktailList.includes(cocktailName) ? state :
+    on(CocktailActions.addToFavouriteCocktailList, (state, { newCocktail }): CocktailState => {
+        return state.favouriteCocktailList.some(cocktail => cocktail.idDrink === newCocktail.idDrink) ? state :
             {
                 ...state,
-                favouriteCocktailList: [...state.favouriteCocktailList, cocktailName]
+                favouriteCocktailList: [...state.favouriteCocktailList, newCocktail]
             };
     }),
-    on(CocktailActions.removeFromFavouriteCocktailList, (state, { cocktailToRemoveName }): CocktailState => {
+    on(CocktailActions.removeFromFavouriteCocktailList, (state, { cocktailToRemove }): CocktailState => {
         return {
             ...state,
-            favouriteCocktailList: state.favouriteCocktailList.filter(cocktailName => cocktailName !== cocktailToRemoveName)
+            favouriteCocktailList: state.favouriteCocktailList.filter(cocktail => cocktail.idDrink !== cocktailToRemove.idDrink)
         };
     }),
     on(CocktailActions.clearFavouriteCocktailList, (state): CocktailState => {

@@ -37,12 +37,12 @@ export const loadCocktailDetailsSuccess = createAction(
 // FAVOURITE COCKTAIL LIST
 export const addToFavouriteCocktailList = createAction(
     "[Cocktails] Add To Favourite Ingredient List",
-    props<{ cocktailName: string }>()
+    props<{ newCocktail: CocktailListItem }>()
 );
 
 export const removeFromFavouriteCocktailList = createAction(
     "[Cocktails] Remove From Favourite Ingredient List",
-    props<{ cocktailToRemoveName: string }>()
+    props<{ cocktailToRemove: CocktailListItem }>()
 );
 
 export const clearFavouriteCocktailList = createAction(

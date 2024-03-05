@@ -16,14 +16,14 @@
     </ng-template>
 
     <ul class="list-group">
-        <li *ngFor="let cocktailName of favouriteCocktailList" class="list-group-item d-flex justify-content-between align-items-center">{{ cocktailName }}
+        <li *ngFor="let cocktail of favouriteCocktailList" class="list-group-item d-flex justify-content-between align-items-center">{{ cocktail.strDrink }}
             <img alt="Clear favourite cocktail list"
                  src="assets/img/delete.png"
                  class="favourite-cocktail_remove-icon"
                  tabindex="0"
                  role="button"
-                 (keydown.enter)="removeFavouriteCocktail(cocktailName)"
-                 (click)="removeFavouriteCocktail(cocktailName)">
+                 (keydown.enter)="removeFavouriteCocktail(cocktail)"
+                 (click)="removeFavouriteCocktail(cocktail)">
         </li>
     </ul>
 
