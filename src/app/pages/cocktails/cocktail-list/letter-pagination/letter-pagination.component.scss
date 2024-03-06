@@ -1,0 +1,15 @@
+li a {
+    color: green;
+}
+
+li a:hover {
+    cursor: pointer;
+    background: green;
+    opacity: 0.5;
+    color: white;
+}
+
+li a.active-letter {
+    background: green;
+    color: white;
+}

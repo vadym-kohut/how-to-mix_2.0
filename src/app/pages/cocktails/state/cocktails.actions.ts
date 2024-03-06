@@ -1,10 +1,15 @@
 import { createAction, props } from "@ngrx/store";
 import { CocktailDetails, CocktailListItem } from "../../../shared/models/cocktail.model";
 
-// LOAD COCKTAIL LIST
-export const loadCocktailListByFirstLetter = createAction(
-    "[Cocktails] Load Cocktail List By First Letter",
+// FIRST LETTER
+export const choseFirstLetter = createAction(
+    "[Cocktails] Chose First Letter",
     props<{ firstLetter: string }>()
+);
+
+// LOAD COCKTAIL LIST BY FIRST LETTER
+export const loadCocktailListByFirstLetter = createAction(
+    "[Cocktails] Load Cocktail List By First Letter"
 );
 
 export const loadCocktailListByFirstLetterSuccess = createAction(

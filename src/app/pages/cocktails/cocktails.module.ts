@@ -12,13 +12,15 @@ import { EffectsModule } from "@ngrx/effects";
 import { CocktailsEffects } from "./state/cocktails.effects";
 import { CocktailCardComponent } from "../../shared/components/cocktail-card/cocktail-card.component";
 import { CocktailDbService } from "../../shared/services/cocktail-db.service";
+import { LetterPaginationComponent } from "./cocktail-list/letter-pagination/letter-pagination.component";
 
 @NgModule({
     declarations: [
         CocktailsComponent,
         CocktailListComponent,
         CocktailDetailsComponent,
-        CocktailsByIngredientComponent
+        CocktailsByIngredientComponent,
+        LetterPaginationComponent
     ],
     imports: [
         CommonModule,

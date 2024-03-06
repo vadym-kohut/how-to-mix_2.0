@@ -8,6 +8,7 @@ export interface State extends AppState.State {
 }
 
 export interface CocktailState {
+    firstLetter: string;
     cocktailListByFirstLetter: CocktailDetails[];
     cocktailListByIngredient: CocktailListItem[];
     cocktailDetails: CocktailDetails | null;
@@ -15,6 +16,7 @@ export interface CocktailState {
 }
 
 const initialState: CocktailState = {
+    firstLetter: 'A',
     cocktailListByFirstLetter: [],
     cocktailListByIngredient: [],
     cocktailDetails: null,
@@ -35,6 +37,10 @@ const initialState: CocktailState = {
 // Selectors
 const getCocktailFeatureState = createFeatureSelector<CocktailState>("cocktails");
 
+export const getFirstLetter = createSelector(
+    getCocktailFeatureState,
+    state => state.firstLetter
+);
 export const getCocktailsByFirstLetter = createSelector(
     getCocktailFeatureState,
     state => state.cocktailListByFirstLetter
@@ -54,6 +60,13 @@ export const getFavouriteCocktailList = createSelector(
 
 export const cocktailsReducer = createReducer(
     initialState,
+    // CHOSE FIRST LETTER
+    on(CocktailActions.choseFirstLetter, (state, { firstLetter }): CocktailState => {
+        return {
+            ...state,
+            firstLetter: firstLetter
+        };
+    }),
     // LOAD COCKTAIL LIST
     on(CocktailActions.loadCocktailListByFirstLetterSuccess, (state, { cocktailList }): CocktailState => {
         return {
