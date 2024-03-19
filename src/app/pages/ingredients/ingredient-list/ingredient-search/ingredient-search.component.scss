@@ -1,0 +1,17 @@
+.ingredient-search_input {
+    width: 200px;
+    padding: 10px;
+    border: 2px solid rgba(50, 82, 60, 0.7);
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+input.ingredient-search_input:focus {
+    outline: none;
+    border-color: #32523c;
+    width: 100%;
+}
+
+input.ingredient-search_input::placeholder {
+    text-align: center;
+}
