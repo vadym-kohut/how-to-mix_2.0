@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { CocktailDbService } from "../../../shared/services/cocktail-db.service";
+import { CocktailDBService } from "../../../shared/services/cocktail-db.service";
 import * as CocktailsActions from "./cocktails.actions";
 import { map, mergeMap, switchMap } from "rxjs";
 import { Store } from "@ngrx/store";
@@ -10,7 +10,7 @@ import { getFirstLetter, State } from "./cocktails.reducer";
 export class CocktailsEffects {
     constructor(
         private actions$: Actions,
-        private cocktailDB: CocktailDbService,
+        private cocktailDB: CocktailDBService,
         private store: Store<State>
     ) {
     }

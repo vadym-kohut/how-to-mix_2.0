@@ -11,7 +11,7 @@ import { cocktailsReducer } from "./state/cocktails.reducer";
 import { EffectsModule } from "@ngrx/effects";
 import { CocktailsEffects } from "./state/cocktails.effects";
 import { CocktailCardComponent } from "../../shared/components/cocktail-card/cocktail-card.component";
-import { CocktailDbService } from "../../shared/services/cocktail-db.service";
+import { CocktailDBService } from "../../shared/services/cocktail-db.service";
 import { LetterPaginationComponent } from "./cocktail-list/letter-pagination/letter-pagination.component";
 
 @NgModule({
@@ -29,7 +29,7 @@ import { LetterPaginationComponent } from "./cocktail-list/letter-pagination/let
         StoreModule.forFeature("cocktails", cocktailsReducer),
         EffectsModule.forFeature([CocktailsEffects])
     ],
-    providers: [CocktailDbService]
+    providers: [CocktailDBService]
 })
 export class CocktailsModule {
 }

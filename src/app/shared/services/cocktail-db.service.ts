@@ -4,7 +4,7 @@ import { map, Observable } from "rxjs";
 import { CocktailDetails, CocktailDetailsResponse, CocktailListItem } from "../models/cocktail.model";
 
 @Injectable()
-export class CocktailDbService {
+export class CocktailDBService {
 
     constructor(private http: HttpClient) {
     }
