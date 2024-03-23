@@ -1,5 +1,15 @@
 <input type="search"
        class="ingredient-search_input d-block ms-auto"
        placeholder="Search for ingredient"
-       [(ngModel)]="ingredientSearchQuery"
-(ngModelChange)="logChange()">
+       [formControl]="ingredientSearchQuery">
+<div class="list-group ingredient-search_list">
+    <a class="list-group-item list-group-item-action"
+       *ngFor="let ingredient of ingredientSearchResults$ | async"
+       routerLink="/ingredients/details/{{ingredient.strIngredient1}}">
+        {{ ingredient.strIngredient1 }}
+    </a>
+    <a class="list-group-item list-group-item-action ingredient-search_no-results"
+       *ngIf="isNoResultsVisible">
+        NO RESULTS
+    </a>
+</div>

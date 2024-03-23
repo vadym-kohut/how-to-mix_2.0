@@ -9,9 +9,19 @@
 input.ingredient-search_input:focus {
     outline: none;
     border-color: #32523c;
-    width: 100%;
+    width: 800px;
 }
 
 input.ingredient-search_input::placeholder {
     text-align: center;
+}
+
+.ingredient-search_list {
+    position: absolute;
+    z-index: 1;
+    width: 800px;
+}
+
+.ingredient-search_no-results {
+    color: darkred;
 }

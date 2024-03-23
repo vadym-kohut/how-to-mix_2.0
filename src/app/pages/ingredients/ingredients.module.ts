@@ -13,7 +13,7 @@ import { IngredientsEffects } from "./state/ingredients.effects";
 import { ChosenIngredientListComponent } from "./chosen-ingredient-list/chosen-ingredient-list.component";
 import { IngredientDBService } from "../../shared/services/ingredient-db.service";
 import { IngredientSearchComponent } from "./ingredient-list/ingredient-search/ingredient-search.component";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -28,6 +28,7 @@ import { FormsModule } from "@angular/forms";
         CommonModule,
         IngredientsRoutingModule,
         FormsModule,
+        ReactiveFormsModule,
         StoreModule.forFeature("ingredients", ingredientsReducer),
         EffectsModule.forFeature([IngredientsEffects])
     ],

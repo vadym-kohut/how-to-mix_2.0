@@ -9,6 +9,7 @@ export interface State extends AppState.State {
 
 export interface IngredientsState {
     ingredientList: IngredientListItem[];
+    ingredientSearchResults: IngredientListItem[];
     ingredientDetails: IngredientDetails | null;
     chosenIngredientList: string[];
     favouriteIngredientList: string[];
@@ -17,10 +18,11 @@ export interface IngredientsState {
 
 const initialState: IngredientsState = {
     ingredientList: [],
+    ingredientSearchResults: [],
     ingredientDetails: null,
-    chosenIngredientList: ['Bourbon', 'Sweet Vermouth', 'Campari'],
-    favouriteIngredientList: ['Rum', 'Scotch'],
-    stopList: ['Orange bitters', 'Orange']
+    chosenIngredientList: ["Bourbon", "Sweet Vermouth", "Campari"],
+    favouriteIngredientList: ["Rum", "Scotch"],
+    stopList: ["Orange bitters", "Orange"]
 };
 
 // Selectors
@@ -29,6 +31,10 @@ const getIngredientFeatureState = createFeatureSelector<IngredientsState>("ingre
 export const getIngredientList = createSelector(
     getIngredientFeatureState,
     state => state.ingredientList
+);
+export const getIngredientSearchResults = createSelector(
+    getIngredientFeatureState,
+    state => state.ingredientSearchResults
 );
 export const getIngredientDetails = createSelector(
     getIngredientFeatureState,
@@ -55,6 +61,20 @@ export const ingredientsReducer = createReducer(
             ...state,
             ingredientList: ingredientList
         };
+    }),
+    // INGREDIENT SEARCH
+    on(IngredientsActions.ingredientSearchQueryChange, (state, { ingredientSearchQuery }): IngredientsState => {
+        if (ingredientSearchQuery !== "") {
+            return {
+                ...state,
+                ingredientSearchResults: state.ingredientList.filter(ingredient => ingredient.strIngredient1.toLowerCase().includes(ingredientSearchQuery.toLowerCase()))
+            };
+        } else {
+            return {
+                ...state,
+                ingredientSearchResults: []
+            };
+        }
     }),
     // LOAD INGREDIENT DETAILS
     on(IngredientsActions.loadIngredientDetailsSuccess, (state, { ingredientDetails }): IngredientsState => {

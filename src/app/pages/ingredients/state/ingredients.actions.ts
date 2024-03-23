@@ -11,6 +11,12 @@ export const loadIngredientListSuccess = createAction(
     props<{ ingredientList: IngredientListItem[] }>()
 );
 
+// INGREDIENT SEARCH
+export const ingredientSearchQueryChange = createAction(
+    "[Ingredients] Ingredient Search Query Change",
+    props<{ ingredientSearchQuery: string }>()
+);
+
 // LOAD INGREDIENT DETAILS
 export const loadIngredientDetails = createAction(
     "[Ingredients] Load Ingredient Details",
