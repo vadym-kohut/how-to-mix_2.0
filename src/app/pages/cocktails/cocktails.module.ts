@@ -15,6 +15,7 @@ import { CocktailApiService } from "../../shared/services/cocktail-api.service";
 import { CocktailFiltersComponent } from "./cocktail-list/cocktail-filters/cocktail-filters.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatSelectModule } from "@angular/material/select";
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { MatSelectModule } from "@angular/material/select";
         FormsModule,
         ReactiveFormsModule,
         MatSelectModule,
+        MatPaginatorModule,
         StoreModule.forFeature("cocktails", cocktailsReducer),
         EffectsModule.forFeature([CocktailsEffects])
     ],
