@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { combineLatestWith, map, Observable } from "rxjs";
+import { combineLatestWith, forkJoin, map, Observable } from "rxjs";
 import {
     CocktailDetails,
     CocktailDetailsResponse,
@@ -14,7 +14,9 @@ export class CocktailApiService {
 
     private apiUrl = "https://www.thecocktaildb.com/api/json/v1/1";
 
-    constructor(private http: HttpClient) {
+    constructor(
+        private http: HttpClient
+    ) {
     }
 
     getCocktailListByFirstLetter$(firstLetter: string): Observable<CocktailDetails[]> {
@@ -23,6 +25,14 @@ export class CocktailApiService {
             { params: { f: firstLetter } }
         ).pipe(
             map(data => data.drinks)
+        );
+    }
+
+    getAllCocktailsList$(): Observable<CocktailDetails[]> {
+        const letters: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        const observables = letters.map(letter => this.getCocktailListByFirstLetter$(letter));
+        return forkJoin(observables).pipe(
+            map(allCocktailList => allCocktailList.filter(Boolean).flat())
         );
     }
 

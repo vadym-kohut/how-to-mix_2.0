@@ -2,26 +2,21 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { CocktailApiService } from "../../../shared/services/cocktail-api.service";
 import * as CocktailsActions from "./cocktails.actions";
-import { map, mergeMap, switchMap } from "rxjs";
-import { Store } from "@ngrx/store";
-import { getFirstLetter, State } from "./cocktails.reducer";
+import { map, mergeMap } from "rxjs";
 
 @Injectable()
 export class CocktailsEffects {
     constructor(
         private actions$: Actions,
-        private cocktailApiService: CocktailApiService,
-        private store: Store<State>
+        private cocktailApiService: CocktailApiService
     ) {
     }
 
-    LoadCocktailListByFirstLetter$ = createEffect(() => {
+    LoadAllCocktailsList$ = createEffect(() => {
         return this.actions$.pipe(
-            ofType(CocktailsActions.loadCocktailListByFirstLetter),
-            switchMap(() =>
-                this.store.select(getFirstLetter).pipe(
-                    mergeMap(firstLetter => this.cocktailApiService.getCocktailListByFirstLetter$(firstLetter)),
-                    map(cocktailList => CocktailsActions.loadCocktailListByFirstLetterSuccess({ cocktailList }))
+            ofType(CocktailsActions.loadAllCocktailsList),
+            mergeMap(() => this.cocktailApiService.getAllCocktailsList$().pipe(
+                    map(allCocktailsList => CocktailsActions.loadAllCocktailsListSuccess({ allCocktailsList }))
                 )
             )
         );

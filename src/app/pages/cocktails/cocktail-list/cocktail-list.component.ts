@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { CocktailDetails, CocktailListItem } from "../../../shared/models/cocktail.model";
 import { Store } from "@ngrx/store";
-import { getCocktailsByFirstLetter, getFirstLetter, State } from "../state/cocktails.reducer";
+import { getAllCocktailsList, State } from "../state/cocktails.reducer";
 import * as CocktailActions from "../state/cocktails.actions";
 
 @Component({
@@ -12,8 +12,7 @@ import * as CocktailActions from "../state/cocktails.actions";
 })
 export class CocktailListComponent implements OnInit {
 
-    cocktailList$: Observable<CocktailDetails[]> = this.store.select(getCocktailsByFirstLetter);
-    firstLetter$: Observable<string> = this.store.select(getFirstLetter);
+    allCocktailsList$: Observable<CocktailDetails[]> = this.store.select(getAllCocktailsList);
 
     constructor(
         private store: Store<State>
@@ -21,15 +20,11 @@ export class CocktailListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.store.dispatch(CocktailActions.loadCocktailListByFirstLetter());
+        this.store.dispatch(CocktailActions.loadAllCocktailsList());
     }
 
     addFavouriteCocktail(newCocktail: CocktailListItem) {
         this.store.dispatch(CocktailActions.addToFavouriteCocktailList({ newCocktail }));
-    }
-
-    choseFirstLetter(firstLetter: string) {
-        this.store.dispatch(CocktailActions.choseFirstLetter({ firstLetter }));
     }
 
 }

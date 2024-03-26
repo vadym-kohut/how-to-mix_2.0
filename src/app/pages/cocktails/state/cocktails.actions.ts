@@ -7,14 +7,14 @@ export const choseFirstLetter = createAction(
     props<{ firstLetter: string }>()
 );
 
-// LOAD COCKTAIL LIST BY FIRST LETTER
-export const loadCocktailListByFirstLetter = createAction(
-    "[Cocktails] Load Cocktail List By First Letter"
+// LOAD ALL COCKTAILS LIST
+export const loadAllCocktailsList = createAction(
+    "[Cocktails] Load All Cocktails List"
 );
 
-export const loadCocktailListByFirstLetterSuccess = createAction(
-    "[Cocktails] Load Cocktail List By First Letter Success",
-    props<{ cocktailList: CocktailDetails[] }>()
+export const loadAllCocktailsListSuccess = createAction(
+    "[Cocktails] Load All Cocktails List Success",
+    props<{ allCocktailsList: CocktailDetails[] }>()
 );
 
 // LOAD COCKTAIL FILTERS

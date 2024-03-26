@@ -8,8 +8,7 @@ export interface State extends AppState.State {
 }
 
 export interface CocktailState {
-    firstLetter: string;
-    cocktailListByFirstLetter: CocktailDetails[];
+    allCocktailsList: CocktailDetails[];
     cocktailFilters: CocktailFilters,
     cocktailListByIngredient: CocktailListItem[];
     cocktailDetails: CocktailDetails | null;
@@ -17,8 +16,7 @@ export interface CocktailState {
 }
 
 const initialState: CocktailState = {
-    firstLetter: "A",
-    cocktailListByFirstLetter: [],
+    allCocktailsList: [],
     cocktailFilters: {
         alcoholics: [],
         categories: [],
@@ -43,13 +41,9 @@ const initialState: CocktailState = {
 // Selectors
 const getCocktailFeatureState = createFeatureSelector<CocktailState>("cocktails");
 
-export const getFirstLetter = createSelector(
+export const getAllCocktailsList = createSelector(
     getCocktailFeatureState,
-    state => state.firstLetter
-);
-export const getCocktailsByFirstLetter = createSelector(
-    getCocktailFeatureState,
-    state => state.cocktailListByFirstLetter
+    state => state.allCocktailsList
 );
 export const getCocktailFilters = createSelector(
     getCocktailFeatureState,
@@ -70,18 +64,11 @@ export const getFavouriteCocktailList = createSelector(
 
 export const cocktailsReducer = createReducer(
     initialState,
-    // CHOSE FIRST LETTER
-    on(CocktailActions.choseFirstLetter, (state, { firstLetter }): CocktailState => {
+    // LOAD ALL COCKTAILS LIST
+    on(CocktailActions.loadAllCocktailsListSuccess, (state, { allCocktailsList }): CocktailState => {
         return {
             ...state,
-            firstLetter
-        };
-    }),
-    // LOAD COCKTAIL LIST BY FIRST LETTER
-    on(CocktailActions.loadCocktailListByFirstLetterSuccess, (state, { cocktailList }): CocktailState => {
-        return {
-            ...state,
-            cocktailListByFirstLetter: cocktailList
+            allCocktailsList
         };
     }),
     // LOAD COCKTAIL FILTERS
