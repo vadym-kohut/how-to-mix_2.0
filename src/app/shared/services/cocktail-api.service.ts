@@ -1,17 +1,25 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { map, Observable } from "rxjs";
-import { CocktailDetails, CocktailDetailsResponse, CocktailListItem } from "../models/cocktail.model";
+import { combineLatestWith, map, Observable } from "rxjs";
+import {
+    CocktailDetails,
+    CocktailDetailsResponse,
+    CocktailFilters,
+    CocktailFiltersResponse,
+    CocktailListItem
+} from "../models/cocktail.model";
 
 @Injectable()
-export class CocktailDBService {
+export class CocktailApiService {
+
+    private apiUrl = "https://www.thecocktaildb.com/api/json/v1/1";
 
     constructor(private http: HttpClient) {
     }
 
     getCocktailListByFirstLetter$(firstLetter: string): Observable<CocktailDetails[]> {
         return this.http.get<{ drinks: CocktailDetails[] }>(
-            "https://www.thecocktaildb.com/api/json/v1/1/search.php",
+            `${this.apiUrl}/search.php`,
             { params: { f: firstLetter } }
         ).pipe(
             map(data => data.drinks)
@@ -20,7 +28,7 @@ export class CocktailDBService {
 
     getCocktailListByIngredient$(ingredientName: string): Observable<CocktailListItem[]> {
         return this.http.get<{ drinks: CocktailListItem[] }>(
-            "https://www.thecocktaildb.com/api/json/v1/1/filter.php",
+            `${this.apiUrl}/filter.php`,
             { params: { i: ingredientName } }
         ).pipe(
             map(data => data.drinks)
@@ -29,7 +37,7 @@ export class CocktailDBService {
 
     getCocktailDetails$(id: string): Observable<CocktailDetails> {
         return this.http.get<{ drinks: CocktailDetailsResponse[] }>(
-            "https://www.thecocktaildb.com/api/json/v1/1/lookup.php",
+            `${this.apiUrl}/lookup.php`,
             { params: { i: id } }
         ).pipe(
             map(data => data.drinks[0]),
@@ -44,6 +52,29 @@ export class CocktailDBService {
                 }
                 return { ...cocktailDetails, ingredientList };
             })
+        );
+    }
+
+    getCocktailFilters$(): Observable<CocktailFilters> {
+        return this.http.get<{ drinks: CocktailFiltersResponse["alcoholics"] }>(
+            `${this.apiUrl}/list.php`,
+            { params: { a: "list" } }
+        ).pipe(
+            combineLatestWith(
+                this.http.get<{ drinks: CocktailFiltersResponse["categories"] }>(
+                    `${this.apiUrl}/list.php`,
+                    { params: { c: "list" } }
+                ),
+                this.http.get<{ drinks: CocktailFiltersResponse["glasses"] }>(
+                    `${this.apiUrl}/list.php`,
+                    { params: { g: "list" } }
+                )
+            ),
+            map(filterArray => ({
+                alcoholics: filterArray[0].drinks.map(alcoholicObj => alcoholicObj.strAlcoholic),
+                categories: filterArray[1].drinks.map(categoryObj => categoryObj.strCategory),
+                glasses: filterArray[2].drinks.map(glassObj => glassObj.strGlass)
+            }))
         );
     }
 

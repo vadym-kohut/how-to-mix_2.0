@@ -76,9 +76,21 @@ export interface CocktailDetails {
     strInstructionsZH_HANS: string | null;
     strInstructionsZH_HANT: string | null;
     strDrinkThumb: string | null;
-    ingredientList: {ingredientName: string, ingredientMeasure: string}[];
+    ingredientList: { ingredientName: string, ingredientMeasure: string }[];
     strImageSource: string | null;
     strImageAttribution: string | null;
     strCreativeCommonsConfirmed: string;
     dateModified: string;
+}
+
+export interface CocktailFiltersResponse {
+    alcoholics: { strAlcoholic: string }[],
+    categories: { strCategory: string }[],
+    glasses: { strGlass: string }[]
+}
+
+export interface CocktailFilters {
+    alcoholics: string[],
+    categories: string[],
+    glasses: string[]
 }

@@ -1,6 +1,6 @@
 import * as CocktailActions from "./cocktails.actions";
 import * as AppState from "../../../state/app.state";
-import { CocktailDetails, CocktailListItem } from "../../../shared/models/cocktail.model";
+import { CocktailDetails, CocktailFilters, CocktailListItem } from "../../../shared/models/cocktail.model";
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
 
 export interface State extends AppState.State {
@@ -10,14 +10,20 @@ export interface State extends AppState.State {
 export interface CocktailState {
     firstLetter: string;
     cocktailListByFirstLetter: CocktailDetails[];
+    cocktailFilters: CocktailFilters,
     cocktailListByIngredient: CocktailListItem[];
     cocktailDetails: CocktailDetails | null;
     favouriteCocktailList: CocktailListItem[];
 }
 
 const initialState: CocktailState = {
-    firstLetter: 'A',
+    firstLetter: "A",
     cocktailListByFirstLetter: [],
+    cocktailFilters: {
+        alcoholics: [],
+        categories: [],
+        glasses: []
+    },
     cocktailListByIngredient: [],
     cocktailDetails: null,
     favouriteCocktailList: [
@@ -45,6 +51,10 @@ export const getCocktailsByFirstLetter = createSelector(
     getCocktailFeatureState,
     state => state.cocktailListByFirstLetter
 );
+export const getCocktailFilters = createSelector(
+    getCocktailFeatureState,
+    state => state.cocktailFilters
+);
 export const getCocktailListByIngredient = createSelector(
     getCocktailFeatureState,
     state => state.cocktailListByIngredient
@@ -64,14 +74,21 @@ export const cocktailsReducer = createReducer(
     on(CocktailActions.choseFirstLetter, (state, { firstLetter }): CocktailState => {
         return {
             ...state,
-            firstLetter: firstLetter
+            firstLetter
         };
     }),
-    // LOAD COCKTAIL LIST
+    // LOAD COCKTAIL LIST BY FIRST LETTER
     on(CocktailActions.loadCocktailListByFirstLetterSuccess, (state, { cocktailList }): CocktailState => {
         return {
             ...state,
             cocktailListByFirstLetter: cocktailList
+        };
+    }),
+    // LOAD COCKTAIL FILTERS
+    on(CocktailActions.loadCocktailFiltersSuccess, (state, { cocktailFilters }): CocktailState => {
+        return {
+            ...state,
+            cocktailFilters
         };
     }),
     // LOAD COCKTAIL LIST BY INGREDIENT
@@ -85,7 +102,7 @@ export const cocktailsReducer = createReducer(
     on(CocktailActions.loadCocktailDetailsSuccess, (state, { cocktailDetails }): CocktailState => {
         return {
             ...state,
-            cocktailDetails: cocktailDetails
+            cocktailDetails
         };
     }),
     // FAVOURITE COCKTAIL LIST

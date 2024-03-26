@@ -11,7 +11,7 @@ import { ingredientsReducer } from "./state/ingredients.reducer";
 import { EffectsModule } from "@ngrx/effects";
 import { IngredientsEffects } from "./state/ingredients.effects";
 import { ChosenIngredientListComponent } from "./chosen-ingredient-list/chosen-ingredient-list.component";
-import { IngredientDBService } from "../../shared/services/ingredient-db.service";
+import { IngredientApiService } from "../../shared/services/ingredient-api.service";
 import { IngredientSearchComponent } from "./ingredient-list/ingredient-search/ingredient-search.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
@@ -32,7 +32,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
         StoreModule.forFeature("ingredients", ingredientsReducer),
         EffectsModule.forFeature([IngredientsEffects])
     ],
-    providers: [IngredientDBService]
+    providers: [IngredientApiService]
 })
 export class IngredientsModule {
 }

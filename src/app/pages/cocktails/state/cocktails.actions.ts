@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { CocktailDetails, CocktailListItem } from "../../../shared/models/cocktail.model";
+import { CocktailDetails, CocktailFilters, CocktailListItem } from "../../../shared/models/cocktail.model";
 
 // FIRST LETTER
 export const choseFirstLetter = createAction(
@@ -15,6 +15,22 @@ export const loadCocktailListByFirstLetter = createAction(
 export const loadCocktailListByFirstLetterSuccess = createAction(
     "[Cocktails] Load Cocktail List By First Letter Success",
     props<{ cocktailList: CocktailDetails[] }>()
+);
+
+// LOAD COCKTAIL FILTERS
+export const loadCocktailFilters = createAction(
+    "[Cocktails] Load Cocktail Filters"
+);
+
+export const loadCocktailFiltersSuccess = createAction(
+    "[Cocktails] Load Cocktail Filters Success",
+    props<{ cocktailFilters: CocktailFilters }>()
+);
+
+// FILTERED COCKTAIL LIST
+export const cocktailFiltersChanged = createAction(
+    "[Cocktails] Cocktail Filters Changed",
+    props<{ cocktailFilters: CocktailFilters }>()
 );
 
 // LOAD COCKTAIL LIST BY INGREDIENT

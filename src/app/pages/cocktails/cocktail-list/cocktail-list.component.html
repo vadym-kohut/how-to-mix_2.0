@@ -4,6 +4,11 @@
     </div>
 </div>
 <div class="row">
+    <div class="col-12">
+        <htm-cocktail-filters></htm-cocktail-filters>
+    </div>
+</div>
+<div class="row">
     <div class="col-3 gy-3 gx-3" *ngFor="let cocktail of cocktailList$ | async">
         <htm-cocktail-card
             [cocktailDetails]="cocktail"

@@ -11,8 +11,11 @@ import { cocktailsReducer } from "./state/cocktails.reducer";
 import { EffectsModule } from "@ngrx/effects";
 import { CocktailsEffects } from "./state/cocktails.effects";
 import { CocktailCardComponent } from "../../shared/components/cocktail-card/cocktail-card.component";
-import { CocktailDBService } from "../../shared/services/cocktail-db.service";
+import { CocktailApiService } from "../../shared/services/cocktail-api.service";
 import { LetterPaginationComponent } from "./cocktail-list/letter-pagination/letter-pagination.component";
+import { CocktailFiltersComponent } from "./cocktail-list/cocktail-filters/cocktail-filters.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatSelectModule } from "@angular/material/select";
 
 @NgModule({
     declarations: [
@@ -20,16 +23,20 @@ import { LetterPaginationComponent } from "./cocktail-list/letter-pagination/let
         CocktailListComponent,
         CocktailDetailsComponent,
         CocktailsByIngredientComponent,
-        LetterPaginationComponent
+        LetterPaginationComponent,
+        CocktailFiltersComponent
     ],
     imports: [
         CommonModule,
         CocktailsRoutingModule,
         CocktailCardComponent,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSelectModule,
         StoreModule.forFeature("cocktails", cocktailsReducer),
         EffectsModule.forFeature([CocktailsEffects])
     ],
-    providers: [CocktailDBService]
+    providers: [CocktailApiService]
 })
 export class CocktailsModule {
 }

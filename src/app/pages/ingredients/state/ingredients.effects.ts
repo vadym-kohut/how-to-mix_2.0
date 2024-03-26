@@ -1,14 +1,14 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { map, mergeMap } from "rxjs";
-import { IngredientDBService } from "src/app/shared/services/ingredient-db.service";
+import { IngredientApiService } from "src/app/shared/services/ingredient-api.service";
 import * as IngredientsActions from "./ingredients.actions";
 
 @Injectable()
 export class IngredientsEffects {
     constructor(
         private actions$: Actions,
-        private ingredientDB: IngredientDBService
+        private ingredientApiService: IngredientApiService
     ) {
     }
 
@@ -16,9 +16,8 @@ export class IngredientsEffects {
         return this.actions$
             .pipe(
                 ofType(IngredientsActions.loadIngredientList),
-                mergeMap(() => this.ingredientDB.getIngredientList$()
-                    .pipe(
-                        map(ingredientList => IngredientsActions.loadIngredientListSuccess({ ingredientList: ingredientList }))
+                mergeMap(() => this.ingredientApiService.getIngredientList$().pipe(
+                        map(ingredientList => IngredientsActions.loadIngredientListSuccess({ ingredientList }))
                     )
                 )
             );
@@ -28,9 +27,8 @@ export class IngredientsEffects {
         return this.actions$
             .pipe(
                 ofType(IngredientsActions.loadIngredientDetails),
-                mergeMap(action => this.ingredientDB.getIngredientDetails$(action.ingredientName)
-                    .pipe(
-                        map(ingredientDetails => IngredientsActions.loadIngredientDetailsSuccess({ ingredientDetails: ingredientDetails }))
+                mergeMap(action => this.ingredientApiService.getIngredientDetails$(action.ingredientName).pipe(
+                        map(ingredientDetails => IngredientsActions.loadIngredientDetailsSuccess({ ingredientDetails }))
                     )
                 )
             );

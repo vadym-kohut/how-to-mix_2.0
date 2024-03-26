@@ -1,0 +1,28 @@
+<ng-container *ngIf="cocktailFilters$ | async as cocktailFilters">
+    <form class="d-flex gap-5 justify-content-around" [formGroup]="cocktailFilterForm">
+        <mat-form-field>
+            <mat-label>Alcoholics</mat-label>
+            <mat-select formControlName="alcoholics" multiple>
+                @for (filter of cocktailFilters.alcoholics; track filter) {
+                    <mat-option [value]="filter">{{ filter }}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Categories</mat-label>
+            <mat-select formControlName="categories" multiple>
+                @for (filter of cocktailFilters.categories; track filter) {
+                    <mat-option [value]="filter">{{ filter }}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Glasses</mat-label>
+            <mat-select formControlName="glasses" multiple>
+                @for (filter of cocktailFilters.glasses; track filter) {
+                    <mat-option [value]="filter">{{ filter }}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+    </form>
+</ng-container>
