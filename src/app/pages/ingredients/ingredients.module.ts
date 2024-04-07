@@ -14,6 +14,7 @@ import { ChosenIngredientListComponent } from "./chosen-ingredient-list/chosen-i
 import { IngredientApiService } from "../../shared/services/ingredient-api.service";
 import { IngredientSearchComponent } from "./ingredient-list/ingredient-search/ingredient-search.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
         IngredientsRoutingModule,
         FormsModule,
         ReactiveFormsModule,
+        MatPaginatorModule,
         StoreModule.forFeature("ingredients", ingredientsReducer),
         EffectsModule.forFeature([IngredientsEffects])
     ],

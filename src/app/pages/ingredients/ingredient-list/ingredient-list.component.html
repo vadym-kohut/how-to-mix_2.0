@@ -17,3 +17,13 @@
         </htm-ingredient-card>
     </div>
 </div>
+<div class="row my-2">
+    <div class="col-12">
+        <mat-paginator [pageSizeOptions]="paginationOptions.pageSizeOptions"
+                       [pageSize]="paginationOptions.pageSize$ | async"
+                       [length]="paginationOptions.length"
+                       [showFirstLastButtons]="paginationOptions.showFirstLastButtons"
+                       (page)="paginationOptions.pageChange($event)">
+        </mat-paginator>
+    </div>
+</div>
