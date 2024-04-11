@@ -1,5 +1,5 @@
 .ingredient-search_input {
-    width: 200px;
+    width: 100%;
     padding: 10px;
     border: 2px solid rgba(50, 82, 60, 0.7);
     border-radius: 15px;
@@ -9,7 +9,6 @@
 input.ingredient-search_input:focus {
     outline: none;
     border-color: #32523c;
-    width: 800px;
 }
 
 input.ingredient-search_input::placeholder {
@@ -17,9 +16,9 @@ input.ingredient-search_input::placeholder {
 }
 
 .ingredient-search_list {
-    position: absolute;
+    position: relative;
     z-index: 1;
-    width: 800px;
+    width: 100%;
 }
 
 .ingredient-search_no-results {
