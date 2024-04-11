@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { Observable, Subscription } from "rxjs";
+import { debounceTime, Observable, Subscription } from "rxjs";
 import { CocktailFilters } from "../../../../shared/models/cocktail.model";
 import { Store } from "@ngrx/store";
 import { getCocktailFilters, State } from "../../state/cocktails.reducer";
@@ -15,6 +15,7 @@ export class CocktailFiltersComponent implements OnInit, OnDestroy {
 
     cocktailFilters$: Observable<CocktailFilters> = this.store.select(getCocktailFilters);
     cocktailFilterForm = this.formBuilder.group({
+        searchQuery: "",
         alcoholics: [[""]],
         categories: [[""]],
         glasses: [[""]]
@@ -25,7 +26,7 @@ export class CocktailFiltersComponent implements OnInit, OnDestroy {
         private store: Store<State>,
         private formBuilder: FormBuilder
     ) {
-        this.filterFormSubscription = this.cocktailFilterForm.valueChanges.subscribe(cocktailFilters =>
+        this.filterFormSubscription = this.cocktailFilterForm.valueChanges.pipe(debounceTime(500)).subscribe(cocktailFilters =>
             this.store.dispatch(cocktailFiltersChanged({ cocktailFilters: cocktailFilters as CocktailFilters })));
     }
 
@@ -42,6 +43,14 @@ export class CocktailFiltersComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.store.dispatch(loadCocktailFilters());
+    }
+
+    get searchQuery() {
+        return this.cocktailFilterForm.get("searchQuery")?.value;
+    }
+
+    clearSearchQuery() {
+        this.cocktailFilterForm.get("searchQuery")?.setValue("");
     }
 
 }

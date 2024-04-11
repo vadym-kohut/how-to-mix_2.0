@@ -9,7 +9,7 @@ export interface State extends AppState.State {
 
 export interface CocktailState {
     allCocktailsList: CocktailDetails[];
-    cocktailFilters: CocktailFilters,
+    cocktailFilters: CocktailFilters;
     cocktailListByIngredient: CocktailListItem[];
     cocktailDetails: CocktailDetails | null;
     favouriteCocktailList: CocktailListItem[];

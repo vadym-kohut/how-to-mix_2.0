@@ -16,6 +16,9 @@ import { CocktailFiltersComponent } from "./cocktail-list/cocktail-filters/cockt
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatSelectModule } from "@angular/material/select";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatInputModule } from "@angular/material/input";
+import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
     declarations: [
@@ -33,6 +36,9 @@ import { MatPaginatorModule } from "@angular/material/paginator";
         ReactiveFormsModule,
         MatSelectModule,
         MatPaginatorModule,
+        MatInputModule,
+        MatIconModule,
+        MatButtonModule,
         StoreModule.forFeature("cocktails", cocktailsReducer),
         EffectsModule.forFeature([CocktailsEffects])
     ],
