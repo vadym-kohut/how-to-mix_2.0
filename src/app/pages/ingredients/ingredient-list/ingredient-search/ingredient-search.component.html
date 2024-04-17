@@ -2,14 +2,20 @@
        class="ingredient-search_input d-block ms-auto"
        placeholder="Search for ingredient"
        [formControl]="ingredientSearchQuery">
-<div class="list-group ingredient-search_list">
-    <a class="list-group-item list-group-item-action"
-       *ngFor="let ingredient of ingredientSearchResults$ | async"
-       routerLink="/ingredients/details/{{ingredient.strIngredient1}}">
-        {{ ingredient.strIngredient1 }}
-    </a>
-    <a class="list-group-item list-group-item-action ingredient-search_no-results"
+<ul class="list-group ingredient-search_list">
+    <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+       *ngFor="let ingredient of ingredientSearchResults$ | async">
+        <span routerLink="/ingredients/details/{{ingredient.strIngredient1}}">{{ ingredient.strIngredient1 }}</span>
+        <img alt="Add To Chosen Ingredient Icon"
+             class="ingredient-search_add-to-chosen d-inline-block"
+             src="assets/img/plus-sign.png"
+             tabindex="0"
+             role="button"
+             (keydown.enter)="addChosenIngredient(ingredient.strIngredient1)"
+             (click)="addChosenIngredient(ingredient.strIngredient1)">
+    </li>
+    <li class="list-group-item list-group-item-action ingredient-search_no-results"
        *ngIf="isNoResultsVisible">
         NO RESULTS
-    </a>
-</div>
+    </li>
+</ul>

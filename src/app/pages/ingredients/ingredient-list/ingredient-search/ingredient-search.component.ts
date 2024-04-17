@@ -25,9 +25,8 @@ export class IngredientSearchComponent implements OnDestroy {
     constructor(
         private store: Store<State>
     ) {
-        this.searchSubscription = this.ingredientSearchQuery.valueChanges.pipe(
-            debounceTime(500)
-        ).subscribe(ingredientSearchQuery => this.changeIngredientQuery(ingredientSearchQuery));
+        this.searchSubscription = this.ingredientSearchQuery.valueChanges.pipe(debounceTime(500))
+            .subscribe(ingredientSearchQuery => this.changeIngredientQuery(ingredientSearchQuery));
     }
 
     ngOnDestroy(): void {
@@ -37,6 +36,10 @@ export class IngredientSearchComponent implements OnDestroy {
 
     changeIngredientQuery(ingredientSearchQuery: string) {
         this.store.dispatch(IngredientActions.ingredientSearchQueryChange({ ingredientSearchQuery }));
+    }
+
+    addChosenIngredient(ingredientName: string) {
+        this.store.dispatch(IngredientActions.addToChosenIngredientList({ ingredientName }));
     }
 
 }

@@ -16,11 +16,24 @@ input.ingredient-search_input::placeholder {
 }
 
 .ingredient-search_list {
-    position: relative;
-    z-index: 1;
     width: 100%;
+}
+
+li span:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .ingredient-search_no-results {
     color: darkred;
+}
+
+.ingredient-search_add-to-chosen {
+    height: 25px;
+    border-radius: 50%;
+}
+
+.ingredient-search_add-to-chosen:hover {
+    background: green;
+    transition: 0.3s;
 }
