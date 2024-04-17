@@ -11,3 +11,8 @@
 .list-group li {
     width: 90%;
 }
+
+li span:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
