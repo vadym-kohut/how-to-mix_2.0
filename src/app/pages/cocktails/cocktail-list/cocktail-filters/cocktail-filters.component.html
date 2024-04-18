@@ -1,15 +1,6 @@
 <ng-container *ngIf="cocktailFilters$ | async as cocktailFilters">
     <form class="d-flex gap-5 justify-content-around" [formGroup]="cocktailFilterForm">
         <mat-form-field>
-            <mat-label>Search by name</mat-label>
-            <input matInput type="text" formControlName="searchQuery">
-            @if (searchQuery) {
-                <button matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchQuery()">
-                    <mat-icon>close</mat-icon>
-                </button>
-            }
-        </mat-form-field>
-        <mat-form-field>
             <mat-label>Alcoholics</mat-label>
             <mat-select formControlName="alcoholics" multiple>
                 @for (filter of cocktailFilters.alcoholics; track filter) {

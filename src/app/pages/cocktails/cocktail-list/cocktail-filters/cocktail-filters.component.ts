@@ -15,7 +15,6 @@ export class CocktailFiltersComponent implements OnInit, OnDestroy {
 
     cocktailFilters$: Observable<CocktailFilters> = this.store.select(getCocktailFilters);
     cocktailFilterForm = this.formBuilder.group({
-        searchQuery: "",
         alcoholics: [[""]],
         categories: [[""]],
         glasses: [[""]]
@@ -43,14 +42,6 @@ export class CocktailFiltersComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.store.dispatch(loadCocktailFilters());
-    }
-
-    get searchQuery() {
-        return this.cocktailFilterForm.get("searchQuery")?.value;
-    }
-
-    clearSearchQuery() {
-        this.cocktailFilterForm.get("searchQuery")?.setValue("");
     }
 
 }
