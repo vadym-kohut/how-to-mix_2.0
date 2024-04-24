@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { BehaviorSubject, combineLatestWith, distinctUntilChanged, map, Observable, tap } from "rxjs";
 import { CocktailDetails, CocktailListItem } from "../../../shared/models/cocktail.model";
 import { Store } from "@ngrx/store";
-import { getAllCocktailsList, State } from "../state/cocktails.reducer";
+import { getCocktailsList, State } from "../state/cocktails.reducer";
 import * as CocktailActions from "../state/cocktails.actions";
 import { PageEvent } from "@angular/material/paginator";
 import { PaginationOptions } from "../../../shared/models/pagination-options";
@@ -25,7 +25,7 @@ export class CocktailListComponent implements OnInit {
             this.paginationOptions.pageSize$.next(event.pageSize);
         }
     };
-    allCocktailsList$: Observable<CocktailDetails[]> = this.store.select(getAllCocktailsList).pipe(
+    allCocktailsList$: Observable<CocktailDetails[]> = this.store.select(getCocktailsList).pipe(
         tap(allCocktailsList => this.paginationOptions.length = allCocktailsList.length),
         combineLatestWith(this.paginationOptions.pageIndex$.pipe(distinctUntilChanged()), this.paginationOptions.pageSize$.pipe(distinctUntilChanged())),
         map(([allCocktailsList, pageIndex, pageSize]) => allCocktailsList.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize))

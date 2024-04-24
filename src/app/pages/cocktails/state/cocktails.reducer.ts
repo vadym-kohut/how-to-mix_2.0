@@ -39,9 +39,9 @@ const initialState: CocktailState = {
 // Selectors
 const getCocktailFeatureState = createFeatureSelector<CocktailState>("cocktails");
 
-export const getAllCocktailsList = createSelector(
+export const getCocktailsList = createSelector(
     getCocktailFeatureState,
-    state => state.allCocktailsList
+    state => state.filteredCocktailList.length ? state.filteredCocktailList : state.allCocktailsList
 );
 export const getCocktailFilters = createSelector(
     getCocktailFeatureState,
@@ -74,6 +74,27 @@ export const cocktailsReducer = createReducer(
         return {
             ...state,
             cocktailFilters
+        };
+    }),
+    // COCKTAIL FILTERS CHANGE
+    on(CocktailActions.cocktailFiltersChanged, (state, { cocktailFilters }): CocktailState => {
+        let filteredCocktailList: CocktailDetails[] = state.allCocktailsList;
+
+        if (cocktailFilters.alcoholics[0]) {
+            filteredCocktailList = filteredCocktailList.filter(cocktail => cocktailFilters.alcoholics.includes(cocktail.strAlcoholic));
+        }
+
+        if (cocktailFilters.categories[0]) {
+            filteredCocktailList = filteredCocktailList.filter(cocktail => cocktailFilters.categories.includes(cocktail.strCategory));
+        }
+
+        if (cocktailFilters.glasses[0]) {
+            filteredCocktailList = filteredCocktailList.filter(cocktail => cocktailFilters.glasses.includes(cocktail.strGlass));
+        }
+
+        return {
+            ...state,
+            filteredCocktailList
         };
     }),
     // LOAD COCKTAIL LIST BY INGREDIENT
