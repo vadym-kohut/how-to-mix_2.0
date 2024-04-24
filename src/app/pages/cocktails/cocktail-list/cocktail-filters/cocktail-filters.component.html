@@ -1,5 +1,5 @@
 <ng-container *ngIf="cocktailFilters$ | async as cocktailFilters">
-    <form class="d-flex gap-5 justify-content-around" [formGroup]="cocktailFilterForm">
+    <form class="d-flex gap-3 justify-content-end" [formGroup]="cocktailFilterForm">
         <mat-form-field>
             <mat-label>Alcoholics</mat-label>
             <mat-select formControlName="alcoholics" multiple>

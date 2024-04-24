@@ -43,7 +43,7 @@ export class CocktailsEffects {
             );
     });
 
-    loadCocktailDetails$ = createEffect(() => {
+    LoadCocktailDetails$ = createEffect(() => {
         return this.actions$
             .pipe(
                 ofType(CocktailsActions.loadCocktailDetails),
