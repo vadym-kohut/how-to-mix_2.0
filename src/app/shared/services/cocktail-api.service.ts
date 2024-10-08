@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { combineLatestWith, forkJoin, map, Observable } from "rxjs";
+import { combineLatestWith, map, Observable } from "rxjs";
 import {
     CocktailDetails,
     CocktailDetailsResponse,
@@ -19,20 +19,9 @@ export class CocktailApiService {
     ) {
     }
 
-    getCocktailListByFirstLetter$(firstLetter: string): Observable<CocktailDetails[]> {
-        return this.http.get<{ drinks: CocktailDetails[] }>(
-            `${this.apiUrl}/search.php`,
-            { params: { f: firstLetter } }
-        ).pipe(
-            map(data => data.drinks)
-        );
-    }
-
     getAllCocktailsList$(): Observable<CocktailDetails[]> {
-        const letters: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-        const observables = letters.map(letter => this.getCocktailListByFirstLetter$(letter));
-        return forkJoin(observables).pipe(
-            map(allCocktailList => allCocktailList.filter(Boolean).flat())
+        return this.http.get<{ '-O8hJFpM2_4Fr7pvti22': CocktailDetails[] }>("https://how-to-mix-default-rtdb.firebaseio.com/cocktails.json").pipe(
+            map(response => response["-O8hJFpM2_4Fr7pvti22"])
         );
     }
 
