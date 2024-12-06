@@ -39,7 +39,7 @@ const initialState: CocktailState = {
 // Selectors
 const getCocktailFeatureState = createFeatureSelector<CocktailState>("cocktails");
 
-export const getCocktailsList = createSelector(
+export const getCocktailList = createSelector(
     getCocktailFeatureState,
     state => state.filteredCocktailList.length ? state.filteredCocktailList : state.allCocktailsList
 );

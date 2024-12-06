@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { RouterLink } from "@angular/router";
 
 @Component({
-  selector: 'htm-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+    standalone: true,
+    imports: [RouterLink],
+    selector: "htm-header",
+    templateUrl: "./header.component.html",
+    styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent {
 
