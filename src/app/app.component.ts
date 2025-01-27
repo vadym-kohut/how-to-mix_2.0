@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'How-To-Mix';
+  title = 'how-to-mix_2.0';
 }
